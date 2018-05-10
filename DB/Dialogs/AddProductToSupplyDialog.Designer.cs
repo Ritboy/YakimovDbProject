@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.priceListCheckBox = new System.Windows.Forms.CheckBox();
             this.priceNumeric = new System.Windows.Forms.NumericUpDown();
@@ -45,15 +45,21 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ndsNumeric = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ndsNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.ndsNumeric);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.priceListCheckBox);
             this.groupBox2.Controls.Add(this.priceNumeric);
             this.groupBox2.Controls.Add(this.quantityNumeric);
@@ -62,7 +68,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox2.Location = new System.Drawing.Point(-1, 350);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(484, 96);
+            this.groupBox2.Size = new System.Drawing.Size(484, 131);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Цена и количество";
@@ -83,7 +89,7 @@
             // 
             this.priceNumeric.Location = new System.Drawing.Point(416, 59);
             this.priceNumeric.Maximum = new decimal(new int[] {
-            1000000,
+            32000,
             0,
             0,
             0});
@@ -105,7 +111,7 @@
             // 
             this.quantityNumeric.Location = new System.Drawing.Point(416, 19);
             this.quantityNumeric.Maximum = new decimal(new int[] {
-            1000000,
+            32000,
             0,
             0,
             0});
@@ -145,7 +151,7 @@
             // 
             // openButton
             // 
-            this.openButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.openButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.openButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.openButton.Location = new System.Drawing.Point(376, 314);
             this.openButton.Name = "openButton";
@@ -156,10 +162,10 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancelButton.Location = new System.Drawing.Point(264, 452);
+            this.cancelButton.Location = new System.Drawing.Point(269, 487);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(88, 30);
             this.cancelButton.TabIndex = 17;
@@ -168,9 +174,9 @@
             // 
             // okButton
             // 
-            this.okButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.okButton.Location = new System.Drawing.Point(170, 452);
+            this.okButton.Location = new System.Drawing.Point(175, 487);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(88, 30);
             this.okButton.TabIndex = 16;
@@ -183,8 +189,7 @@
             this.productTable.AllowUserToAddRows = false;
             this.productTable.AllowUserToDeleteRows = false;
             this.productTable.AllowUserToOrderColumns = true;
-            this.productTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.productTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.productTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.productTable.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -196,14 +201,14 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.Column7});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productTable.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productTable.DefaultCellStyle = dataGridViewCellStyle2;
             this.productTable.Location = new System.Drawing.Point(-1, -1);
             this.productTable.Name = "productTable";
             this.productTable.ReadOnly = true;
@@ -253,6 +258,28 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
+            // ndsNumeric
+            // 
+            this.ndsNumeric.Location = new System.Drawing.Point(416, 92);
+            this.ndsNumeric.Name = "ndsNumeric";
+            this.ndsNumeric.Size = new System.Drawing.Size(56, 27);
+            this.ndsNumeric.TabIndex = 23;
+            this.ndsNumeric.Value = new decimal(new int[] {
+            18,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(351, 94);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 19);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "НДС (%)";
+            // 
             // AddProductToSupplyDialog
             // 
             this.AcceptButton = this.okButton;
@@ -260,7 +287,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(483, 488);
+            this.ClientSize = new System.Drawing.Size(483, 527);
             this.Controls.Add(this.productTable);
             this.Controls.Add(this.openButton);
             this.Controls.Add(this.groupBox2);
@@ -277,6 +304,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.priceNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ndsNumeric)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -298,5 +326,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.NumericUpDown ndsNumeric;
+        private System.Windows.Forms.Label label1;
     }
 }

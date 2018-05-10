@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace DB.Dialogs
 {
-    public abstract class AbstractDialog : Form
+    public abstract class AbstractDialog : BaseForm
     {
         protected readonly DialogState DialogState;
         protected readonly long? Id;

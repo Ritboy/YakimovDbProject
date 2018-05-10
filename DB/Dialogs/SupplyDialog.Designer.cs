@@ -45,14 +45,9 @@ namespace DB.Dialogs
             this.executionDatePicker = new System.Windows.Forms.DateTimePicker();
             this.supplyResolvedPanel = new System.Windows.Forms.Panel();
             this.changeResponsiblePersonButton = new System.Windows.Forms.Button();
+            this.executionDateLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.productsTable = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addProductButton = new System.Windows.Forms.Button();
             this.removeProductButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -63,6 +58,7 @@ namespace DB.Dialogs
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.discountLabel = new System.Windows.Forms.Label();
             this.changeOrganizationButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
@@ -71,8 +67,14 @@ namespace DB.Dialogs
             this.preparationDateLabel = new System.Windows.Forms.Label();
             this.expirationDateLabel = new System.Windows.Forms.Label();
             this.statusLabel = new System.Windows.Forms.Label();
-            this.executionDateLabel = new System.Windows.Forms.Label();
-            this.discountLabel = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplyResolvedPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsTable)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -82,7 +84,7 @@ namespace DB.Dialogs
             // organizationLinkLabel
             // 
             this.organizationLinkLabel.AutoSize = true;
-            this.organizationLinkLabel.Location = new System.Drawing.Point(206, 20);
+            this.organizationLinkLabel.Location = new System.Drawing.Point(310, 17);
             this.organizationLinkLabel.Name = "organizationLinkLabel";
             this.organizationLinkLabel.Size = new System.Drawing.Size(127, 13);
             this.organizationLinkLabel.TabIndex = 3;
@@ -92,7 +94,7 @@ namespace DB.Dialogs
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 50);
+            this.label2.Location = new System.Drawing.Point(115, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(151, 13);
             this.label2.TabIndex = 4;
@@ -101,7 +103,7 @@ namespace DB.Dialogs
             // preparationDatePicker
             // 
             this.preparationDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.preparationDatePicker.Location = new System.Drawing.Point(209, 44);
+            this.preparationDatePicker.Location = new System.Drawing.Point(313, 41);
             this.preparationDatePicker.Name = "preparationDatePicker";
             this.preparationDatePicker.Size = new System.Drawing.Size(121, 20);
             this.preparationDatePicker.TabIndex = 5;
@@ -109,7 +111,7 @@ namespace DB.Dialogs
             // expirationDatePicker
             // 
             this.expirationDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.expirationDatePicker.Location = new System.Drawing.Point(209, 70);
+            this.expirationDatePicker.Location = new System.Drawing.Point(313, 67);
             this.expirationDatePicker.Name = "expirationDatePicker";
             this.expirationDatePicker.Size = new System.Drawing.Size(121, 20);
             this.expirationDatePicker.TabIndex = 7;
@@ -117,7 +119,7 @@ namespace DB.Dialogs
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 76);
+            this.label3.Location = new System.Drawing.Point(115, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 13);
             this.label3.TabIndex = 6;
@@ -182,14 +184,14 @@ namespace DB.Dialogs
             // 
             // supplyResolvedPanel
             // 
-            this.supplyResolvedPanel.Controls.Add(this.executionDateLabel);
             this.supplyResolvedPanel.Controls.Add(this.changeResponsiblePersonButton);
             this.supplyResolvedPanel.Controls.Add(this.label5);
             this.supplyResolvedPanel.Controls.Add(this.responsiblePersonLinkLabel);
             this.supplyResolvedPanel.Controls.Add(this.label4);
             this.supplyResolvedPanel.Controls.Add(this.executionDatePicker);
+            this.supplyResolvedPanel.Controls.Add(this.executionDateLabel);
             this.supplyResolvedPanel.Enabled = false;
-            this.supplyResolvedPanel.Location = new System.Drawing.Point(6, 130);
+            this.supplyResolvedPanel.Location = new System.Drawing.Point(110, 127);
             this.supplyResolvedPanel.Name = "supplyResolvedPanel";
             this.supplyResolvedPanel.Size = new System.Drawing.Size(444, 74);
             this.supplyResolvedPanel.TabIndex = 16;
@@ -202,11 +204,21 @@ namespace DB.Dialogs
             this.changeResponsiblePersonButton.TabIndex = 27;
             this.changeResponsiblePersonButton.Text = "Изменить";
             this.changeResponsiblePersonButton.UseVisualStyleBackColor = true;
+            this.changeResponsiblePersonButton.Click += new System.EventHandler(this.changeResponsiblePersonButton_Click);
+            // 
+            // executionDateLabel
+            // 
+            this.executionDateLabel.AutoSize = true;
+            this.executionDateLabel.Location = new System.Drawing.Point(200, 43);
+            this.executionDateLabel.Name = "executionDateLabel";
+            this.executionDateLabel.Size = new System.Drawing.Size(111, 13);
+            this.executionDateLabel.TabIndex = 33;
+            this.executionDateLabel.Text = "Состояние поставки";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 20);
+            this.label1.Location = new System.Drawing.Point(115, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 13);
             this.label1.TabIndex = 1;
@@ -220,6 +232,8 @@ namespace DB.Dialogs
             this.productsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
+            this.Column7,
+            this.Column8,
             this.Column2,
             this.Column3,
             this.Column4,
@@ -236,51 +250,12 @@ namespace DB.Dialogs
             this.productsTable.Location = new System.Drawing.Point(6, 51);
             this.productsTable.Name = "productsTable";
             this.productsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productsTable.Size = new System.Drawing.Size(432, 191);
+            this.productsTable.Size = new System.Drawing.Size(620, 191);
             this.productsTable.TabIndex = 19;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Id";
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Name";
-            this.Column2.HeaderText = "Наименование";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Quantity";
-            this.Column3.HeaderText = "Количество";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Price";
-            this.Column4.HeaderText = "Цена";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Nds";
-            this.Column5.HeaderText = "Ндс";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "Sum";
-            this.Column6.HeaderText = "Сумма";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // addProductButton
             // 
-            this.addProductButton.Location = new System.Drawing.Point(282, 19);
+            this.addProductButton.Location = new System.Drawing.Point(470, 19);
             this.addProductButton.Name = "addProductButton";
             this.addProductButton.Size = new System.Drawing.Size(75, 23);
             this.addProductButton.TabIndex = 23;
@@ -290,7 +265,7 @@ namespace DB.Dialogs
             // 
             // removeProductButton
             // 
-            this.removeProductButton.Location = new System.Drawing.Point(363, 19);
+            this.removeProductButton.Location = new System.Drawing.Point(551, 19);
             this.removeProductButton.Name = "removeProductButton";
             this.removeProductButton.Size = new System.Drawing.Size(75, 23);
             this.removeProductButton.TabIndex = 24;
@@ -313,7 +288,7 @@ namespace DB.Dialogs
             this.groupBox1.Controls.Add(this.discountLabel);
             this.groupBox1.Location = new System.Drawing.Point(6, 251);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(444, 285);
+            this.groupBox1.Size = new System.Drawing.Size(632, 285);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Выбранная продукция";
@@ -382,9 +357,18 @@ namespace DB.Dialogs
             this.label8.TabIndex = 25;
             this.label8.Text = "Сумма";
             // 
+            // discountLabel
+            // 
+            this.discountLabel.AutoSize = true;
+            this.discountLabel.Location = new System.Drawing.Point(229, 250);
+            this.discountLabel.Name = "discountLabel";
+            this.discountLabel.Size = new System.Drawing.Size(13, 13);
+            this.discountLabel.TabIndex = 33;
+            this.discountLabel.Text = "0";
+            // 
             // changeOrganizationButton
             // 
-            this.changeOrganizationButton.Location = new System.Drawing.Point(372, 15);
+            this.changeOrganizationButton.Location = new System.Drawing.Point(476, 12);
             this.changeOrganizationButton.Name = "changeOrganizationButton";
             this.changeOrganizationButton.Size = new System.Drawing.Size(75, 23);
             this.changeOrganizationButton.TabIndex = 26;
@@ -395,7 +379,7 @@ namespace DB.Dialogs
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 105);
+            this.label6.Location = new System.Drawing.Point(116, 102);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(111, 13);
             this.label6.TabIndex = 27;
@@ -408,19 +392,19 @@ namespace DB.Dialogs
             "Счёт отправлен",
             "Оплата получена",
             "Товар отправлен",
-            "Товар получен",
-            "Сделка закрыта"});
-            this.statusComboBox.Location = new System.Drawing.Point(209, 96);
+            "Товар получен"});
+            this.statusComboBox.Location = new System.Drawing.Point(313, 93);
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(121, 21);
             this.statusComboBox.TabIndex = 28;
             this.statusComboBox.Text = "Заявка";
+            this.statusComboBox.SelectedIndexChanged += new System.EventHandler(this.statusComboBox_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(156, 228);
+            this.label11.Location = new System.Drawing.Point(315, 228);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(66, 20);
             this.label11.TabIndex = 28;
@@ -430,7 +414,7 @@ namespace DB.Dialogs
             // 
             this.billNumberLabel.AutoSize = true;
             this.billNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.billNumberLabel.Location = new System.Drawing.Point(234, 228);
+            this.billNumberLabel.Location = new System.Drawing.Point(393, 228);
             this.billNumberLabel.Name = "billNumberLabel";
             this.billNumberLabel.Size = new System.Drawing.Size(18, 20);
             this.billNumberLabel.TabIndex = 29;
@@ -439,7 +423,7 @@ namespace DB.Dialogs
             // preparationDateLabel
             // 
             this.preparationDateLabel.AutoSize = true;
-            this.preparationDateLabel.Location = new System.Drawing.Point(206, 50);
+            this.preparationDateLabel.Location = new System.Drawing.Point(310, 47);
             this.preparationDateLabel.Name = "preparationDateLabel";
             this.preparationDateLabel.Size = new System.Drawing.Size(111, 13);
             this.preparationDateLabel.TabIndex = 30;
@@ -448,7 +432,7 @@ namespace DB.Dialogs
             // expirationDateLabel
             // 
             this.expirationDateLabel.AutoSize = true;
-            this.expirationDateLabel.Location = new System.Drawing.Point(206, 76);
+            this.expirationDateLabel.Location = new System.Drawing.Point(310, 73);
             this.expirationDateLabel.Name = "expirationDateLabel";
             this.expirationDateLabel.Size = new System.Drawing.Size(111, 13);
             this.expirationDateLabel.TabIndex = 31;
@@ -457,37 +441,71 @@ namespace DB.Dialogs
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(206, 99);
+            this.statusLabel.Location = new System.Drawing.Point(310, 96);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(111, 13);
             this.statusLabel.TabIndex = 32;
             this.statusLabel.Text = "Состояние поставки";
             // 
-            // executionDateLabel
+            // Column1
             // 
-            this.executionDateLabel.AutoSize = true;
-            this.executionDateLabel.Location = new System.Drawing.Point(200, 43);
-            this.executionDateLabel.Name = "executionDateLabel";
-            this.executionDateLabel.Size = new System.Drawing.Size(111, 13);
-            this.executionDateLabel.TabIndex = 33;
-            this.executionDateLabel.Text = "Состояние поставки";
+            this.Column1.DataPropertyName = "Product_ID";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
-            // discountLabel
+            // Column7
             // 
-            this.discountLabel.AutoSize = true;
-            this.discountLabel.Location = new System.Drawing.Point(229, 250);
-            this.discountLabel.Name = "discountLabel";
-            this.discountLabel.Size = new System.Drawing.Size(13, 13);
-            this.discountLabel.TabIndex = 33;
-            this.discountLabel.Text = "0";
+            this.Column7.DataPropertyName = "TU";
+            this.Column7.HeaderText = "ТУ";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "Measure";
+            this.Column8.HeaderText = "Ед. измерения";
+            this.Column8.Name = "Column8";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Name";
+            this.Column2.HeaderText = "Наименование";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Quantity";
+            this.Column3.HeaderText = "Количество";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Price";
+            this.Column4.HeaderText = "Цена";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Nds";
+            this.Column5.HeaderText = "Ндс";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "Sum";
+            this.Column6.HeaderText = "Сумма";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // SupplyDialog
             // 
-            this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Honeydew;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(450, 577);
+            this.ClientSize = new System.Drawing.Size(650, 577);
             this.Controls.Add(this.billNumberLabel);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.statusComboBox);
@@ -512,6 +530,7 @@ namespace DB.Dialogs
             this.Name = "SupplyDialog";
             this.ShowIcon = false;
             this.Text = "Поставка";
+            this.Load += new System.EventHandler(this.SupplyDialog_Load);
             this.supplyResolvedPanel.ResumeLayout(false);
             this.supplyResolvedPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsTable)).EndInit();
@@ -554,16 +573,18 @@ namespace DB.Dialogs
         private System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label billNumberLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Label executionDateLabel;
         private System.Windows.Forms.Label discountLabel;
         private System.Windows.Forms.Label preparationDateLabel;
         private System.Windows.Forms.Label expirationDateLabel;
         private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

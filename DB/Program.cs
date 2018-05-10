@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DB.Dialogs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,12 @@ namespace DB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            var auth = new Auth();
+            Application.Run(auth);
+            if (auth.Passed)
+            {
+                Application.Run(new Form1());
+            }
         }
     }
 }

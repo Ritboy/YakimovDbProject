@@ -12,7 +12,7 @@ namespace DB.Dialogs
 {
     public partial class SelectOrganizationDialog : BaseForm
     {
-        public long? SelectedInn { get; set; } = null;
+        public long? SelectedId { get; set; } = null;
 
         public SelectOrganizationDialog()
         {
@@ -34,8 +34,8 @@ namespace DB.Dialogs
         {
             if (CheckSelectedRow(organizationsTable))
             {
-                var inn = GetSelectedIdFromTable(organizationsTable);
-                var addOrganizationDialog = new OrganizationDialog(DialogState.Edit, inn);
+                var id = GetSelectedIdFromTable(organizationsTable);
+                var addOrganizationDialog = new OrganizationDialog(DialogState.Edit, id);
                 addOrganizationDialog.ShowDialog();
                 updateTable();
             }
@@ -63,7 +63,7 @@ namespace DB.Dialogs
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            SelectedInn = GetSelectedIdFromTable(organizationsTable);
+            SelectedId = GetSelectedIdFromTable(organizationsTable);
             Close();
         }
 

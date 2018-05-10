@@ -63,6 +63,7 @@ namespace DB
         private void addSupplyButton_Click(object sender, EventArgs e)
         {
             new SupplyDialog(DialogState.Add).ShowDialog(this);
+            updateSuppliesTable();
         }
 
         private void openSupplyButton_Click(object sender, EventArgs e)
@@ -77,14 +78,16 @@ namespace DB
             var id = GetSelectedIdFromTable(supplyTable);
             var supplyDialog = new SupplyDialog(DialogState.Edit, id);
             supplyDialog.ShowDialog(this);
-            updateProductTable();
+            updateSuppliesTable();
         }
 
         private void removeSupplyButton_Click(object sender, EventArgs e)
         {
             var id = GetSelectedIdFromTable(supplyTable);
             EntityManager.DeleteSupply(id);
-            updateProductTable();
+            EntityManager.DeleteBill(id);
+            EntityManager.DeleteBillProductWholeBill(id);
+            updateSuppliesTable();
         }
 
         private void supplyTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -98,6 +101,10 @@ namespace DB
                     case "Bill":
                         var openBillDialog = new OpenBillDialog(Convert.ToInt32(grid.SelectedCells[0].Value));
                         openBillDialog.ShowDialog(this);
+                        break;
+                    case "OrganizationName":
+                        var organizationDialog = new OrganizationDialog(DialogState.Open, Convert.ToInt32(grid.SelectedCells[0].Value));
+                        organizationDialog.ShowDialog(this);
                         break;
                 }
             }

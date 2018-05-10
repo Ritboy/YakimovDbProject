@@ -12,7 +12,7 @@ namespace DB.Entities
         public long SupplyId { get; set; }
         public long OrganizationId { get; set; }
         public long BillId { get; set; }
-        public long ResponsiblePersonId { get; set; }
+        public long? ResponsiblePersonId { get; set; }
         public DateTime Preparation_date { get; set; }
         public DateTime Expiration_date { get; set; }
         public DateTime Execution_date { get; set; }
@@ -47,7 +47,11 @@ namespace DB.Entities
 
         public ResponsiblePerson GetResponsiblePerson()
         {
-            return EntityManager.GetResponsiblePerson(ResponsiblePersonId);
+            if (ResponsiblePersonId == null)
+            {
+                return null;
+            }
+            return EntityManager.GetResponsiblePerson(ResponsiblePersonId.Value);
         }
 
         public Bill GetBill()

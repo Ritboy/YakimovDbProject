@@ -13,9 +13,7 @@ namespace DB.Dialogs
 {
     public partial class AddProductToSupplyDialog : BaseForm
     {
-        public long? SelectedProductId { get; set; }
-        public int Quantity { get; set; }
-        public double Price { get; set; }
+        public BillProduct BillProduct { get; set; }
 
         public AddProductToSupplyDialog()
         {
@@ -34,11 +32,15 @@ namespace DB.Dialogs
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            SelectedProductId = GetSelectedIdFromTable(productTable);
-            Quantity = (int)quantityNumeric.Value;
-            Price = (double)priceNumeric.Value;
-
-
+            BillProduct = new BillProduct()
+            {
+                ProductId = GetSelectedIdFromTable(productTable),
+                Quantity = (int)quantityNumeric.Value,
+                Price = (double)priceNumeric.Value,
+                Nds = (int)ndsNumeric.Value
+            };
+            BillProduct.Sum = BillProduct.Price * BillProduct.Quantity;
+            
             Close();
         }
     }

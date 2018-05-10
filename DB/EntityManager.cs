@@ -19,6 +19,26 @@ namespace DB
             _connection.Open();
         }
 
+        //User
+        public static bool ValidateUser(string login, string pass)
+        {
+            var query = "SELECT Login, Password FROM User WHERE Login = @login AND Password = @pass";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@login", login);
+            command.Parameters.AddWithValue("@pass", pass);
+            var s = command.ExecuteScalar();
+            return s != null;
+        }
+
+        public static void AddNewUser(string login, string pass)
+        {
+            var query = "INSERT INTO User(Login, Password) VALUES(@login, @pass);";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@login", login);
+            command.Parameters.AddWithValue("@pass", pass);
+            var test = command.ExecuteNonQuery();
+        }
+
         //
         //Supplies
         //
@@ -65,13 +85,15 @@ namespace DB
                 SupplyId = reader.GetInt64(0),
                 OrganizationId = reader.GetInt64(1),
                 BillId = reader.GetInt64(2),
-                ResponsiblePersonId = reader.GetInt64(3),
                 Preparation_date = DateTime.Parse(reader.GetString(4)).Date,
                 Execution_date = DateTime.Parse(reader.GetString(5)).Date,
                 Expiration_date = DateTime.Parse(reader.GetString(6)).Date,
                 Status = (SupplyStatus)reader.GetInt32(7)
             };
-
+            if (!reader.IsDBNull(3))
+            {
+                supply.ResponsiblePersonId = reader.GetInt64(3);
+            }
 
             return supply;
         }
@@ -126,7 +148,9 @@ namespace DB
         {
             var query = "SELECT MAX(Supply_ID) FROM Supply";
             var command = new SQLiteCommand(query, _connection);
-            return Convert.ToInt64(command.ExecuteScalar()) + 1;
+            var reader = command.ExecuteReader();
+            reader.Read();
+            return reader.IsDBNull(0) ? 1 : reader.GetInt64(0);
         }
 
         //
@@ -151,7 +175,7 @@ namespace DB
 
         public static DataTable GetOrganizationsCompactTable()
         {
-            var query = "SELECT Inn, Name, Email FROM Organization";
+            var query = "SELECT Organization_ID, Inn, Name FROM Organization";
             _dataAdapter = new SQLiteDataAdapter(query, _connection);
             var dataSet = new DataSet();
             _dataAdapter.Fill(dataSet);
@@ -327,10 +351,87 @@ namespace DB
         //
         //Bill_Product
         //
-        //public static void InsertProductToBill(long billId, long productId)
-        //{
-        //    var query = "INSERT INTO (O"
-        //}
+
+        public static DataTable GetBillProductTable(long billId)
+        {
+            var query = @"SELECT Product.Product_ID, TU, Measure, Name, Quantity, Bill_Product.Price, Nds, Sum
+                            FROM Bill_Product, Product, Bill 
+                            WHERE Bill_Product.Product_Id = @billId;";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@billId", billId);
+            var dataSet = new DataSet();
+            var dataAdapter = new SQLiteDataAdapter(command);
+            dataAdapter.Fill(dataSet);
+            return dataSet.Tables[0];
+        }
+
+        public static BillProduct GetBillProduct(long billId, long productId)
+        {
+            var qery = @"SELECT * FROM Product WHERE Bill_Id = @billId AND Product_Id = @productId;";
+            var command = new SQLiteCommand(qery, _connection);
+            command.Parameters.AddWithValue("@billId", billId);
+            command.Parameters.AddWithValue("@productId", productId);
+            var reader = command.ExecuteReader();
+            reader.Read();
+            var billProduct = new BillProduct()
+            {
+                BillId = reader.GetInt64(0),
+                ProductId = reader.GetInt64(1),
+                Quantity = reader.GetInt32(2),
+                Price = reader.GetInt32(3),
+                Nds = reader.GetInt32(4),
+                Sum = reader.GetInt32(5),
+            };
+
+            return billProduct;
+        }
+
+        public static void InsertBillProduct(BillProduct billProduct)
+        {
+            var query = @"INSERT INTO Bill_Product VALUES (@billId, @productId, @quantity, @price, @nds, @sum);";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@billId", billProduct.BillId);
+            command.Parameters.AddWithValue("@productId", billProduct.ProductId);
+            command.Parameters.AddWithValue("@quantity", billProduct.Quantity);
+            command.Parameters.AddWithValue("@price", billProduct.Price);
+            command.Parameters.AddWithValue("@nds", billProduct.Nds);
+            command.Parameters.AddWithValue("@sum", billProduct.Sum);
+
+            command.ExecuteNonQuery();
+        }
+
+        public static void UpdateBillProduct(long billId, long productId, BillProduct billProduct)
+        {
+            var query = @"UPDATE Bill_Product 
+                        SET Quantity = @quantity, Price = @price, Nds = @nds, Sum = @sum
+                        WHERE Bill_Id = @billId AND Product_Id = @productId;";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@billId", billProduct.BillId);
+            command.Parameters.AddWithValue("@productId", billProduct.ProductId);
+            command.Parameters.AddWithValue("@quantity", billProduct.Quantity);
+            command.Parameters.AddWithValue("@price", billProduct.Price);
+            command.Parameters.AddWithValue("@nds", billProduct.Nds);
+            command.Parameters.AddWithValue("@sum", billProduct.Sum);
+
+            command.ExecuteNonQuery();
+        }
+
+        public static void DeleteBillProduct(long billId, long productId)
+        {
+            var query = @"DELETE FROM Bill_Product WHERE Bill_Id = @billId AND Product_Id = @productId;";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@billId", billId);
+            command.Parameters.AddWithValue("@productId", productId);
+            command.ExecuteNonQuery();
+        }
+
+        public static void DeleteBillProductWholeBill(long billId)
+        {
+            var query = @"DELETE FROM Bill_Product WHERE Bill_Id = @billId;";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@billId", billId);
+            command.ExecuteNonQuery();
+        }
 
         //
         //ResponsiblePerson
@@ -429,9 +530,10 @@ namespace DB
 
         public static void InsertBill(Bill bill)
         {
-            var query = @"INSERT INTO Bill(Supply_ID, Amount, Discount) 
-                          VALUES (@supplyId, @amount, @discount);";
+            var query = @"INSERT INTO Bill(Bill_ID, Supply_ID, Amount, Discount) 
+                          VALUES (@billId, @supplyId, @amount, @discount);";
             var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@billId", bill.BillId);
             command.Parameters.AddWithValue("@supplyId", bill.SupplyId);
             command.Parameters.AddWithValue("@amount", bill.Amount);
             command.Parameters.AddWithValue("@discount", bill.Discount);
@@ -465,7 +567,9 @@ namespace DB
         {
             var query = "SELECT MAX(Bill_ID) FROM Bill";
             var command = new SQLiteCommand(query, _connection);
-            return Convert.ToInt64(command.ExecuteScalar()) + 1;
+            var reader = command.ExecuteReader();
+            reader.Read();
+            return reader.IsDBNull(0) ? 1 : reader.GetInt64(0);
         }
 
         public static DataTable GetProductsTableFromBill(long billId)
