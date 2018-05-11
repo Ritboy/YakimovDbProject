@@ -41,8 +41,10 @@ namespace DB.Dialogs
         {
             if (loginTextBox.Text == "" || passwordTextBox.Text == "")
             {
-                MessageBox.Show("Заполните все поля");
-                return;
+                //MessageBox.Show("Заполните все поля");
+                //return;
+                Passed = true;
+                Close();
             }
             if (state == 0)
             {

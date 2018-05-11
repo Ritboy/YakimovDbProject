@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DB.Entities;
 
 namespace DB.Dialogs
 {
@@ -20,11 +19,6 @@ namespace DB.Dialogs
         public ResponsiblePerson ResponsiblePerson { get; set; }
         public Bill Bill { get; set; }
         public List<BillProduct> BillProduct { get; set; } = new List<BillProduct>();
-
-        public SupplyDialog()
-        {
-            InitializeComponent();
-        }
 
         public SupplyDialog(DialogState dialogState, long? id = null) : base(dialogState, id)
         {
@@ -60,15 +54,11 @@ namespace DB.Dialogs
 
         protected override void SetTextboxesValues()
         {
-            //var supply = EntityManager.GetSupply(Id.Value);
-            //var organization = supply.GetOrganization();
-            //var responsiblePerson = supply.GetResponsiblePerson();
-            //var bill = supply.GetBill();
-
             organizationLinkLabel.Text = Organization.Name;
             preparationDatePicker.Value = _supply.Preparation_date;
             expirationDatePicker.Value = _supply.Expiration_date;
             statusComboBox.SelectedIndex = (int)_supply.Status;
+            statusLabel.Text = statusComboBox.ValueMember;
             responsiblePersonLinkLabel.Text = ResponsiblePerson?.Lastname ?? "-";
             executionDatePicker.Value = _supply.Execution_date;
             billNumberLabel.Text = _supply.BillId.ToString();
@@ -125,36 +115,12 @@ namespace DB.Dialogs
             }
         }
 
-        private void okButton_Click(object sender, EventArgs e)
+        private void applyDiscount()
         {
-            //var bill = new Bill()
-            //{
-            //    BillId = EntityManager.Get
-            //    SupplyId = EntityManager.GetNextSupplyId(),
-            //    Amount = double.Parse(amountLabel.Text),
-            //    Discount = (int)discountNumeric.Value
-            //};
-
-            //var supply = new Supply()
-            //{
-            //    OrganizationId = Organization.OrganizationId,
-            //    BillId = Bill.BillId,
-            //    ResponsiblePersonId = ResponsiblePerson.ResponsiblePersonId,
-            //    Preparation_date = preparationDatePicker.Value,
-            //    Expiration_date = expirationDatePicker.Value,
-            //    Execution_date = executionDatePicker.Value,
-            //    Status = (SupplyStatus)statusComboBox.SelectedIndex
-            //};
-
-            //var Bill = new Bill()
-            //{
-
-            //}
-        }
-
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
+            var previousAmount = Bill.Amount;
+            var discount = previousAmount * (double)discountNumeric.Value / 100;
+            var amountWithDiscount = previousAmount - discount;
+            amountLabel.Text = amountWithDiscount.ToString();
         }
 
         private void changeOrganizationButton_Click(object sender, EventArgs e)
@@ -165,31 +131,39 @@ namespace DB.Dialogs
             {
                 Organization = EntityManager.GetOrganization(organizationDialog.SelectedId.Value);
                 organizationLinkLabel.Text = Organization.Name;
+                responsiblePersonLinkLabel.Text = "Ответсвенное лицо";
+                if (statusComboBox.SelectedIndex == 3)
+                {
+                    supplyResolvedPanel.Enabled = true;
+                }
             }
         }
 
         private void addProductButton_Click(object sender, EventArgs e)
         {
             var addProductToSupplyDialog = new AddProductToSupplyDialog();
-            addProductToSupplyDialog.ShowDialog();
-            if (BillProduct.Any(product => product.ProductId ==  addProductToSupplyDialog.BillProduct.ProductId))
+            var result = addProductToSupplyDialog.ShowDialog();
+            if (result == DialogResult.OK)
             {
-                MessageBox.Show("В этом счёте уже добавлена такая продукция. " +
-                                "Вы можете изменить количество, цену или ндс в таблице", "Продукция уже добавлена", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            }
-            else
-            {
-                addProductToTable(addProductToSupplyDialog);
-                var billProduct = addProductToSupplyDialog.BillProduct;
-                billProduct.BillId = Bill.BillId;
-                BillProduct.Add(billProduct);
+                if (BillProduct.Any(product => product.ProductId == addProductToSupplyDialog.BillProduct.ProductId))
+                {
+                    MessageBox.Show("В этом счёте уже добавлена такая продукция. " +
+                                    "Вы можете изменить количество, цену или ндс в таблице", "Продукция уже добавлена", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
+                else
+                {
+                    addProductToTable(addProductToSupplyDialog);
+                    var billProduct = addProductToSupplyDialog.BillProduct;
+                    billProduct.BillId = Bill.BillId;
+                    BillProduct.Add(billProduct);
+                }
             }
         }
 
         private void removeProductButton_Click(object sender, EventArgs e)
         {
             var id = GetSelectedIdFromTable(productsTable);
-            BillProduct.Remove(BillProduct.First(billProduct => billProduct.BillId == id));
+            BillProduct.Remove(BillProduct.First(billProduct => billProduct.ProductId == id));
             productsTable.Rows.Remove(productsTable.SelectedRows[0]);
             updateTable();
         }
@@ -212,7 +186,7 @@ namespace DB.Dialogs
 
         private void statusComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            supplyResolvedPanel.Enabled = statusComboBox.SelectedIndex == 3;
+            supplyResolvedPanel.Enabled = statusComboBox.SelectedIndex == 3 && Organization != null;
         }
 
         private void SupplyDialog_Load(object sender, EventArgs e)
@@ -226,12 +200,39 @@ namespace DB.Dialogs
             {
                 changeOrganizationButton.Visible = false;
                 changeResponsiblePersonButton.Visible = false;
+                addProductButton.Visible = false;
+                removeProductButton.Visible = false;
+                okButton.Visible = false;
             }
         }
 
         private void changeResponsiblePersonButton_Click(object sender, EventArgs e)
         {
+            var responsiblePersonDialog = new SelectResponsiblePersonsDialog(Organization);
+            if (responsiblePersonDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                ResponsiblePerson = responsiblePersonDialog.SelectedResponsiblePerson;
+                responsiblePersonLinkLabel.Text = ResponsiblePerson.Lastname;
+            }            
+        }
 
+        private void discountCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            discountNumeric.Enabled = discountCheckBox.Checked;
+            if (discountCheckBox.Enabled)
+            {
+                applyDiscount();
+            }
+            else
+            {
+                discountNumeric.Value = 0;
+                applyDiscount();
+            }
+        }
+
+        private void discountNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            applyDiscount();
         }
     }
 }

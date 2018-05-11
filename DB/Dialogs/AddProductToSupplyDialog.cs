@@ -40,7 +40,8 @@ namespace DB.Dialogs
                 Nds = (int)ndsNumeric.Value
             };
             BillProduct.Sum = BillProduct.Price * BillProduct.Quantity;
-            
+
+            DialogResult = DialogResult.OK;
             Close();
         }
     }

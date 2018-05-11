@@ -57,7 +57,7 @@
             this.loginTextBox.Location = new System.Drawing.Point(165, 25);
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(252, 26);
-            this.loginTextBox.TabIndex = 1;
+            this.loginTextBox.TabIndex = 0;
             // 
             // groupBox
             // 
@@ -98,7 +98,7 @@
             this.submitButton.Location = new System.Drawing.Point(188, 206);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(101, 34);
-            this.submitButton.TabIndex = 2;
+            this.submitButton.TabIndex = 1;
             this.submitButton.Text = "Вход";
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);

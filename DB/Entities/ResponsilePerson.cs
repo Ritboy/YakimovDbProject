@@ -16,6 +16,8 @@ namespace DB.Entities
         public string Lastname { get; set; }
         public string Name { get; set; }
         public string Patronymic { get; set; }
+        public DateTime ProxyReceivedDate { get; set; }
+        public DateTime ProxyExpiredDate { get; set; }
 
         public Organization Organization { get; set; }
     }

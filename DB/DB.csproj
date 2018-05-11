@@ -115,17 +115,23 @@
     <Compile Include="Dialogs\OpenBillDialog.Designer.cs">
       <DependentUpon>OpenBillDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\ResponsiblePersonDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ResponsiblePersonDialog.Designer.cs">
+      <DependentUpon>ResponsiblePersonDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\SelectOrganizationDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\SelectOrganizationDialog.Designer.cs">
       <DependentUpon>SelectOrganizationDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ResponsiblePersonsDialog.cs">
+    <Compile Include="Dialogs\SelectResponsiblePersonsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ResponsiblePersonsDialog.Designer.cs">
-      <DependentUpon>ResponsiblePersonsDialog.cs</DependentUpon>
+    <Compile Include="Dialogs\SelectResponsiblePersonsDialog.Designer.cs">
+      <DependentUpon>SelectResponsiblePersonsDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\SupplyDialog.cs">
       <SubType>Form</SubType>
@@ -137,6 +143,7 @@
     <Compile Include="Entities\BillProduct.cs" />
     <Compile Include="Entities\Organization.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Proxy.cs" />
     <Compile Include="Entities\ResponsilePerson.cs" />
     <Compile Include="Entities\Supply.cs" />
     <Compile Include="EntityManager.cs" />
@@ -167,11 +174,14 @@
     <EmbeddedResource Include="Dialogs\OpenBillDialog.resx">
       <DependentUpon>OpenBillDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ResponsiblePersonDialog.resx">
+      <DependentUpon>ResponsiblePersonDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SelectOrganizationDialog.resx">
       <DependentUpon>SelectOrganizationDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ResponsiblePersonsDialog.resx">
-      <DependentUpon>ResponsiblePersonsDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\SelectResponsiblePersonsDialog.resx">
+      <DependentUpon>SelectResponsiblePersonsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SupplyDialog.resx">
       <DependentUpon>SupplyDialog.cs</DependentUpon>

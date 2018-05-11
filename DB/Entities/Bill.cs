@@ -14,6 +14,8 @@ namespace DB.Entities
         public double Amount { get; set; }
         public int Discount { get; set; }
 
+        public List<BillProduct> Products { get; set; } = new List<BillProduct>();
+
         public DataTable GetProducts()
         {
             return EntityManager.GetProductsTableFromBill(BillId);

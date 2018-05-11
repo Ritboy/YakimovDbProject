@@ -150,7 +150,7 @@ namespace DB
             var command = new SQLiteCommand(query, _connection);
             var reader = command.ExecuteReader();
             reader.Read();
-            return reader.IsDBNull(0) ? 1 : reader.GetInt64(0);
+            return reader.IsDBNull(0) ? 1 : reader.GetInt64(0) + 1;
         }
 
         //
@@ -437,12 +437,16 @@ namespace DB
         //ResponsiblePerson
         //
 
-        public static DataTable GetResponsiblePersonTable()
+        public static DataTable GetResponsiblePersonTableByOrganizationId(long organizationId)
         {
-            var query = @"SELECT * FROM ResponsiblePerson;";
-            _dataAdapter = new SQLiteDataAdapter(query, _connection);
-            _dataAdapter.Fill(_dataTable);
-            return _dataTable;
+            var query = @"SELECT Responsible_person_ID AS Id, Lastname, Post, Proxy_ID 
+                          FROM ResponsiblePerson WHERE Organization_ID = @organizationId;";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("organizationId", organizationId);
+            _dataAdapter = new SQLiteDataAdapter(command);
+            var dataSet = new DataSet();
+            _dataAdapter.Fill(dataSet);
+            return dataSet.Tables[0];
         }
 
         public static ResponsiblePerson GetResponsiblePerson(long id)
@@ -460,7 +464,9 @@ namespace DB
                 Post = reader.GetString(3),
                 Lastname = reader.GetString(4),
                 Name = reader.GetString(5),
-                Patronymic = reader.GetString(6)
+                Patronymic = reader.GetString(6),
+                ProxyReceivedDate = DateTime.Parse(reader.GetString(7)),
+                ProxyExpiredDate = DateTime.Parse(reader.GetString(8))
             };
 
             return responsilePerson;
@@ -468,8 +474,9 @@ namespace DB
 
         public static void InsertResponsiblePerson(ResponsiblePerson responsiblePerson)
         {
-            var query = @"INSERT INTO ResponsiblePerson(Organization_ID, Proxy_ID, Post, Lastname, Name, Patronymic) 
-                          VALUES (@organizationId, @proxyId, @post, @lastname, @name, @patronymic);";
+            var query = @"INSERT INTO ResponsiblePerson(Organization_ID, Proxy_ID, Post, Lastname, 
+                                                        Name, Patronymic, Proxy_received_date, Proxy_expired_date) 
+                          VALUES (@organizationId, @proxyId, @post, @lastname, @name, @patronymic, @proxyReceivedDate, @proxyExpiredDate);";
             var command = new SQLiteCommand(query, _connection);
             command.Parameters.AddWithValue("@organizationId", responsiblePerson.OrganizationId);
             command.Parameters.AddWithValue("@proxyId", responsiblePerson.ProxyId);
@@ -477,7 +484,8 @@ namespace DB
             command.Parameters.AddWithValue("@lastname", responsiblePerson.Lastname);
             command.Parameters.AddWithValue("@name", responsiblePerson.Name);
             command.Parameters.AddWithValue("@patronymic", responsiblePerson.Patronymic);
-
+            command.Parameters.AddWithValue("@proxyReceivedDate", responsiblePerson.ProxyReceivedDate);
+            command.Parameters.AddWithValue("@proxyExpiredDate", responsiblePerson.ProxyExpiredDate);
             command.ExecuteNonQuery();
         }
 
@@ -485,8 +493,9 @@ namespace DB
         {
             var query = @"UPDATE ResponsiblePerson 
                         SET Organization_ID = @organizationId, Proxy_ID = @proxyId, Post = @post,
-                            Lastname = @lastname, Name = @name, Patronymic = @patronymic
-                        WHERE Product_ID = @id;";
+                            Lastname = @lastname, Name = @name, Patronymic = @patronymic,
+                            Proxy_received_date = @proxyReceivedDate, Proxy_expired_date = @proxyExpiredDate
+                        WHERE Responsible_person_ID = @id;";
             var command = new SQLiteCommand(query, _connection);
             command.Parameters.AddWithValue("@organizationId", responsiblePerson.OrganizationId);
             command.Parameters.AddWithValue("@proxyId", responsiblePerson.ProxyId);
@@ -494,6 +503,8 @@ namespace DB
             command.Parameters.AddWithValue("@lastname", responsiblePerson.Lastname);
             command.Parameters.AddWithValue("@name", responsiblePerson.Name);
             command.Parameters.AddWithValue("@patronymic", responsiblePerson.Patronymic);
+            command.Parameters.AddWithValue("@proxyReceivedDate", responsiblePerson.ProxyReceivedDate);
+            command.Parameters.AddWithValue("@proxyExpiredDate", responsiblePerson.ProxyExpiredDate);
             command.Parameters.AddWithValue("@id", id);
 
             command.ExecuteNonQuery();
@@ -508,12 +519,84 @@ namespace DB
         }
 
         //
+        //Proxy
+        //
+
+        //public static Proxy GetProxyById(long id)
+        //{
+        //    var qery = @"SELECT * FROM Proxy WHERE Proxy_ID = @id;";
+        //    var command = new SQLiteCommand(qery, _connection);
+        //    command.Parameters.AddWithValue("@id", id);
+        //    var reader = command.ExecuteReader();
+        //    reader.Read();
+        //    var proxy = new Proxy()
+        //    {
+        //        ProxyId = reader.GetInt64(0),
+        //        ResponsiblePersonId = reader.GetInt64(1),
+        //        CreatedDate = DateTime.Parse(reader.GetString(2)),
+        //        ExpiredDate = DateTime.Parse(reader.GetString(3))
+        //    };
+
+        //    return proxy;
+        //}
+
+        //public static Proxy GetProxyByResponsiblePersonId(long id)
+        //{
+        //    var qery = @"SELECT * FROM Proxy WHERE Responsible_person_ID = @id;";
+        //    var command = new SQLiteCommand(qery, _connection);
+        //    command.Parameters.AddWithValue("@id", id);
+        //    var reader = command.ExecuteReader();
+        //    reader.Read();
+        //    var proxy = new Proxy()
+        //    {
+        //        ProxyId = reader.GetInt64(0),
+        //        ResponsiblePersonId = reader.GetInt64(1),
+        //        CreatedDate = DateTime.Parse(reader.GetString(2)),
+        //        ExpiredDate = DateTime.Parse(reader.GetString(3))
+        //    };
+
+        //    return proxy;
+        //}
+
+        //public static void InsertProxy(Proxy proxy)
+        //{
+        //    var query = @"INSERT INTO Proxy 
+        //                  VALUES (@id, @organizationId, @createdDate, @expiredDate);";
+        //    var command = new SQLiteCommand(query, _connection);
+        //    command.Parameters.AddWithValue("@id", proxy.ProxyId);
+        //    command.Parameters.AddWithValue("@organizationId", proxy.ResponsiblePersonId);
+        //    command.Parameters.AddWithValue("@createdDate", proxy.CreatedDate);
+        //    command.Parameters.AddWithValue("@expiredDate", proxy.ExpiredDate);
+
+        //    command.ExecuteNonQuery();
+        //}
+
+        //public static void UpdateProxy(long id, Product product)
+        //{
+        //    var query = @"UPDATE Product 
+        //                SET Name = @name, TU = @tu, Available = @available,
+        //                    Measure = @measure, Price = @price, Description = @description
+        //                WHERE Product_ID = @id;";
+        //    var command = new SQLiteCommand(query, _connection);
+        //    command.Parameters.AddWithValue("@id", id);
+        //    command.Parameters.AddWithValue("@name", product.Name);
+        //    command.Parameters.AddWithValue("@tu", product.Tu);
+        //    command.Parameters.AddWithValue("@available", product.Available);
+        //    command.Parameters.AddWithValue("@measure", product.Measure);
+        //    command.Parameters.AddWithValue("@price", product.Price);
+        //    command.Parameters.AddWithValue("@description", product.Description);
+
+        //    command.ExecuteNonQuery();
+        //}
+
+        //
         //Bill
         //
         public static Bill GetBill(long id)
         {
-            var query = "SELECT * FROM Bill";
+            var query = "SELECT * FROM Bill WHERE Bill_ID = @id";
             var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@id", id);
             var reader = command.ExecuteReader();
             reader.Read();
 
@@ -569,16 +652,18 @@ namespace DB
             var command = new SQLiteCommand(query, _connection);
             var reader = command.ExecuteReader();
             reader.Read();
-            return reader.IsDBNull(0) ? 1 : reader.GetInt64(0);
+            return reader.IsDBNull(0) ? 1 : reader.GetInt64(0) + 1;
         }
 
         public static DataTable GetProductsTableFromBill(long billId)
         {
             var query = @"
-                SELECT Bill_Product.Product_Id, Product.Name, Product.TU, 
+                SELECT Bill_Product.Product_ID, Product.Name, Product.TU, 
 	                Product.Measure, Quantity, Bill_Product.Price, Nds, Bill_Product.Sum
-                FROM Bill_Product, Product ON (Bill_Product.Product_Id = Product.Product_ID);";
-            _dataAdapter = new SQLiteDataAdapter(query, _connection);
+                FROM Bill_Product, Product WHERE Bill_ID = @billId AND Product.Product_ID = Bill_Product.Product_Id;";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("billId", billId);
+            _dataAdapter = new SQLiteDataAdapter(command);
             var dataSet = new DataSet();
             _dataAdapter.Fill(dataSet);
             return dataSet.Tables[0];

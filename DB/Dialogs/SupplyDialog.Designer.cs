@@ -31,7 +31,7 @@ namespace DB.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.organizationLinkLabel = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.preparationDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -48,6 +48,14 @@ namespace DB.Dialogs
             this.executionDateLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.productsTable = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addProductButton = new System.Windows.Forms.Button();
             this.removeProductButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -67,14 +75,6 @@ namespace DB.Dialogs
             this.preparationDateLabel = new System.Windows.Forms.Label();
             this.expirationDateLabel = new System.Windows.Forms.Label();
             this.statusLabel = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplyResolvedPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsTable)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -86,10 +86,10 @@ namespace DB.Dialogs
             this.organizationLinkLabel.AutoSize = true;
             this.organizationLinkLabel.Location = new System.Drawing.Point(310, 17);
             this.organizationLinkLabel.Name = "organizationLinkLabel";
-            this.organizationLinkLabel.Size = new System.Drawing.Size(127, 13);
+            this.organizationLinkLabel.Size = new System.Drawing.Size(74, 13);
             this.organizationLinkLabel.TabIndex = 3;
             this.organizationLinkLabel.TabStop = true;
-            this.organizationLinkLabel.Text = "Выберите организацию";
+            this.organizationLinkLabel.Text = "Организация";
             // 
             // label2
             // 
@@ -134,7 +134,6 @@ namespace DB.Dialogs
             this.okButton.TabIndex = 14;
             this.okButton.Text = "Сохранить";
             this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // cancelButton
             // 
@@ -158,12 +157,14 @@ namespace DB.Dialogs
             // responsiblePersonLinkLabel
             // 
             this.responsiblePersonLinkLabel.AutoSize = true;
+            this.responsiblePersonLinkLabel.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.responsiblePersonLinkLabel.Location = new System.Drawing.Point(200, 11);
             this.responsiblePersonLinkLabel.Name = "responsiblePersonLinkLabel";
-            this.responsiblePersonLinkLabel.Size = new System.Drawing.Size(162, 13);
+            this.responsiblePersonLinkLabel.Size = new System.Drawing.Size(127, 13);
             this.responsiblePersonLinkLabel.TabIndex = 11;
             this.responsiblePersonLinkLabel.TabStop = true;
-            this.responsiblePersonLinkLabel.Text = "Выберите ответственное лицо";
+            this.responsiblePersonLinkLabel.Text = "Выберите организацию";
+            this.responsiblePersonLinkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -184,6 +185,7 @@ namespace DB.Dialogs
             // 
             // supplyResolvedPanel
             // 
+            this.supplyResolvedPanel.BackColor = System.Drawing.Color.Transparent;
             this.supplyResolvedPanel.Controls.Add(this.changeResponsiblePersonButton);
             this.supplyResolvedPanel.Controls.Add(this.label5);
             this.supplyResolvedPanel.Controls.Add(this.responsiblePersonLinkLabel);
@@ -198,7 +200,7 @@ namespace DB.Dialogs
             // 
             // changeResponsiblePersonButton
             // 
-            this.changeResponsiblePersonButton.Location = new System.Drawing.Point(366, 6);
+            this.changeResponsiblePersonButton.Location = new System.Drawing.Point(333, 6);
             this.changeResponsiblePersonButton.Name = "changeResponsiblePersonButton";
             this.changeResponsiblePersonButton.Size = new System.Drawing.Size(75, 23);
             this.changeResponsiblePersonButton.TabIndex = 27;
@@ -239,19 +241,71 @@ namespace DB.Dialogs
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productsTable.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productsTable.DefaultCellStyle = dataGridViewCellStyle1;
             this.productsTable.Location = new System.Drawing.Point(6, 51);
             this.productsTable.Name = "productsTable";
             this.productsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productsTable.Size = new System.Drawing.Size(620, 191);
             this.productsTable.TabIndex = 19;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Product_ID";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "TU";
+            this.Column7.HeaderText = "ТУ";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "Measure";
+            this.Column8.HeaderText = "Ед. измерения";
+            this.Column8.Name = "Column8";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Name";
+            this.Column2.HeaderText = "Наименование";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Quantity";
+            this.Column3.HeaderText = "Количество";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Price";
+            this.Column4.HeaderText = "Цена";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Nds";
+            this.Column5.HeaderText = "Ндс";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "Sum";
+            this.Column6.HeaderText = "Сумма";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // addProductButton
             // 
@@ -291,13 +345,13 @@ namespace DB.Dialogs
             this.groupBox1.Size = new System.Drawing.Size(632, 285);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Выбранная продукция";
+            this.groupBox1.Text = "Продукция";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Enabled = false;
-            this.label10.Location = new System.Drawing.Point(276, 250);
+            this.label10.Location = new System.Drawing.Point(310, 248);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(15, 13);
             this.label10.TabIndex = 28;
@@ -306,20 +360,22 @@ namespace DB.Dialogs
             // discountNumeric
             // 
             this.discountNumeric.Enabled = false;
-            this.discountNumeric.Location = new System.Drawing.Point(228, 248);
+            this.discountNumeric.Location = new System.Drawing.Point(262, 246);
             this.discountNumeric.Name = "discountNumeric";
             this.discountNumeric.Size = new System.Drawing.Size(42, 20);
             this.discountNumeric.TabIndex = 29;
+            this.discountNumeric.ValueChanged += new System.EventHandler(this.discountNumeric_ValueChanged);
             // 
             // discountCheckBox
             // 
             this.discountCheckBox.AutoSize = true;
-            this.discountCheckBox.Location = new System.Drawing.Point(101, 248);
+            this.discountCheckBox.Location = new System.Drawing.Point(135, 246);
             this.discountCheckBox.Name = "discountCheckBox";
             this.discountCheckBox.Size = new System.Drawing.Size(121, 17);
             this.discountCheckBox.TabIndex = 28;
             this.discountCheckBox.Text = "Применить скидку";
             this.discountCheckBox.UseVisualStyleBackColor = true;
+            this.discountCheckBox.CheckedChanged += new System.EventHandler(this.discountCheckBox_CheckedChanged);
             // 
             // amountLabel
             // 
@@ -368,7 +424,7 @@ namespace DB.Dialogs
             // 
             // changeOrganizationButton
             // 
-            this.changeOrganizationButton.Location = new System.Drawing.Point(476, 12);
+            this.changeOrganizationButton.Location = new System.Drawing.Point(441, 12);
             this.changeOrganizationButton.Name = "changeOrganizationButton";
             this.changeOrganizationButton.Size = new System.Drawing.Size(75, 23);
             this.changeOrganizationButton.TabIndex = 26;
@@ -446,58 +502,6 @@ namespace DB.Dialogs
             this.statusLabel.Size = new System.Drawing.Size(111, 13);
             this.statusLabel.TabIndex = 32;
             this.statusLabel.Text = "Состояние поставки";
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Product_ID";
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "TU";
-            this.Column7.HeaderText = "ТУ";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "Measure";
-            this.Column8.HeaderText = "Ед. измерения";
-            this.Column8.Name = "Column8";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Name";
-            this.Column2.HeaderText = "Наименование";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Quantity";
-            this.Column3.HeaderText = "Количество";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Price";
-            this.Column4.HeaderText = "Цена";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Nds";
-            this.Column5.HeaderText = "Ндс";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "Sum";
-            this.Column6.HeaderText = "Сумма";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // SupplyDialog
             // 

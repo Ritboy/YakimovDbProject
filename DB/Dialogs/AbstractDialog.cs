@@ -54,6 +54,7 @@ namespace DB.Dialogs
         protected void SetDialogButtons(Button okButton, Button cancelButton)
         {
             OkButton = okButton;
+            OkButton.DialogResult = DialogResult.None;
             CancellButton = cancelButton;
 
             OkButton.Click += onOkButtonClick;
