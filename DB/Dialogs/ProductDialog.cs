@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace DB.Dialogs
 {
-    public partial class AddNewProduct : Dialog
+    public partial class ProductDialog : Dialog
     {
-        public AddNewProduct(DialogState state, long? id = null) : base(state, id)
+        public ProductDialog(DialogState state, long? id = null) : base(state, id)
         {
             InitializeComponentAndSetDialogButtons();
         }
@@ -32,7 +32,9 @@ namespace DB.Dialogs
             tuTextBox.Text = product.Tu;
             measureTextBox.Text = product.Measure;
             availableNumeric.Value = product.Available;
+            availableLable.Text = product.Available.ToString();
             priceNumeric.Value = (decimal)product.Price;
+            priceLabel.Text = product.Price.ToString();
             descriptionRichTextBox.Text = product.Description;
         }
 

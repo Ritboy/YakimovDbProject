@@ -1,6 +1,6 @@
 ﻿namespace DB.Dialogs
 {
-    partial class AddNewProduct
+    partial class ProductDialog
     {
         /// <summary>
         /// Required designer variable.

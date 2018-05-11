@@ -95,7 +95,7 @@
             // submitButton
             // 
             this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.submitButton.Location = new System.Drawing.Point(188, 206);
+            this.submitButton.Location = new System.Drawing.Point(266, 206);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(101, 34);
             this.submitButton.TabIndex = 1;
@@ -106,11 +106,11 @@
             // newUserButton
             // 
             this.newUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.newUserButton.Location = new System.Drawing.Point(295, 206);
+            this.newUserButton.Location = new System.Drawing.Point(373, 206);
             this.newUserButton.Name = "newUserButton";
-            this.newUserButton.Size = new System.Drawing.Size(231, 34);
+            this.newUserButton.Size = new System.Drawing.Size(115, 34);
             this.newUserButton.TabIndex = 3;
-            this.newUserButton.Text = "Новый пользователь";
+            this.newUserButton.Text = "Выход";
             this.newUserButton.UseVisualStyleBackColor = true;
             this.newUserButton.Click += new System.EventHandler(this.newUserButton_Click);
             // 

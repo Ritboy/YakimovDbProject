@@ -151,7 +151,7 @@ namespace DB
         //Product tab
         private void addProductButton_Click(object sender, EventArgs e)
         {
-            var addProductDialog = new AddNewProduct(DialogState.Add);
+            var addProductDialog = new ProductDialog(DialogState.Add);
             addProductDialog.ShowDialog(this);
             updateProductTable();
         }
@@ -159,14 +159,14 @@ namespace DB
         private void openProductButton_Click(object sender, EventArgs e)
         {
             var id = GetSelectedIdFromTable(productTable);
-            var addProductDialog = new AddNewProduct(DialogState.Open, id);
+            var addProductDialog = new ProductDialog(DialogState.Open, id);
             addProductDialog.ShowDialog(this);
         }
 
         private void editProductButton_Click(object sender, EventArgs e)
         {
             var id = GetSelectedIdFromTable(productTable);
-            var addProductDialog = new AddNewProduct(DialogState.Edit, id);
+            var addProductDialog = new ProductDialog(DialogState.Edit, id);
             addProductDialog.ShowDialog(this);
             updateProductTable();
         }

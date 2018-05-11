@@ -234,5 +234,22 @@ namespace DB.Dialogs
         {
             applyDiscount();
         }
+
+        private void organizationLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (Organization != null)
+            {
+                new OrganizationDialog(DialogState.Open, Organization.OrganizationId).ShowDialog();
+            }
+        }
+
+        private void responsiblePersonLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (ResponsiblePerson != null)
+            {
+                new ResponsiblePersonDialog(DialogState.Open, Organization, ResponsiblePerson.ResponsiblePersonId)
+                    .ShowDialog();
+            }
+        }
     }
 }

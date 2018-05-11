@@ -23,11 +23,23 @@ namespace DB.Dialogs
         private void AddProductToSupplyDialog_Load(object sender, EventArgs e)
         {
             updateTable();
+            productTable.SelectionChanged += productTable_SelectionChanged;
         }
 
         private void updateTable()
         {
             UpdateTable(productTable, EntityManager.GetProductsMainTable());
+        }
+
+        private Product getSelectedProduct()
+        {
+            var available = Convert.ToInt32(productTable.SelectedRows[0].Cells[3].Value);
+            var price = Convert.ToDouble(productTable.SelectedRows[0].Cells[5].Value);
+            return new Product()
+            {
+                Available = available,
+                Price = price
+            };
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -43,6 +55,26 @@ namespace DB.Dialogs
 
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void priceListCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            priceNumeric.Enabled = !priceListCheckBox.Checked;
+            if (priceListCheckBox.Checked)
+            {
+                var price = Convert.ToDecimal(productTable.SelectedRows[0].Cells[5].Value);
+                priceNumeric.Value = price;
+            }
+        }
+
+        private void productTable_SelectionChanged(object sender, EventArgs e)
+        {
+            var product = getSelectedProduct();
+            quantityNumeric.Maximum = product.Available;
+            if (priceListCheckBox.Checked)
+            {
+                priceNumeric.Value = (decimal)product.Price;
+            }
         }
     }
 }

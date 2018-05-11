@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ndsNumeric = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.priceListCheckBox = new System.Windows.Forms.CheckBox();
             this.priceNumeric = new System.Windows.Forms.NumericUpDown();
             this.quantityNumeric = new System.Windows.Forms.NumericUpDown();
@@ -45,13 +47,11 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ndsNumeric = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ndsNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ndsNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -73,17 +73,38 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Цена и количество";
             // 
+            // ndsNumeric
+            // 
+            this.ndsNumeric.Location = new System.Drawing.Point(416, 92);
+            this.ndsNumeric.Name = "ndsNumeric";
+            this.ndsNumeric.Size = new System.Drawing.Size(56, 27);
+            this.ndsNumeric.TabIndex = 23;
+            this.ndsNumeric.Value = new decimal(new int[] {
+            18,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(351, 94);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 19);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "НДС (%)";
+            // 
             // priceListCheckBox
             // 
             this.priceListCheckBox.AutoSize = true;
-            this.priceListCheckBox.Checked = true;
-            this.priceListCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.priceListCheckBox.Location = new System.Drawing.Point(236, 60);
             this.priceListCheckBox.Name = "priceListCheckBox";
             this.priceListCheckBox.Size = new System.Drawing.Size(132, 23);
             this.priceListCheckBox.TabIndex = 21;
             this.priceListCheckBox.Text = "По прайс-листу";
             this.priceListCheckBox.UseVisualStyleBackColor = true;
+            this.priceListCheckBox.CheckedChanged += new System.EventHandler(this.priceListCheckBox_CheckedChanged);
             // 
             // priceNumeric
             // 
@@ -201,14 +222,14 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.Column7});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productTable.DefaultCellStyle = dataGridViewCellStyle1;
             this.productTable.Location = new System.Drawing.Point(-1, -1);
             this.productTable.Name = "productTable";
             this.productTable.ReadOnly = true;
@@ -258,28 +279,6 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
-            // ndsNumeric
-            // 
-            this.ndsNumeric.Location = new System.Drawing.Point(416, 92);
-            this.ndsNumeric.Name = "ndsNumeric";
-            this.ndsNumeric.Size = new System.Drawing.Size(56, 27);
-            this.ndsNumeric.TabIndex = 23;
-            this.ndsNumeric.Value = new decimal(new int[] {
-            18,
-            0,
-            0,
-            0});
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(351, 94);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 19);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "НДС (%)";
-            // 
             // AddProductToSupplyDialog
             // 
             this.AcceptButton = this.okButton;
@@ -301,10 +300,10 @@
             this.Load += new System.EventHandler(this.AddProductToSupplyDialog_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ndsNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ndsNumeric)).EndInit();
             this.ResumeLayout(false);
 
         }

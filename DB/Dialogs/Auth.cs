@@ -41,10 +41,10 @@ namespace DB.Dialogs
         {
             if (loginTextBox.Text == "" || passwordTextBox.Text == "")
             {
-                //MessageBox.Show("Заполните все поля");
-                //return;
-                Passed = true;
-                Close();
+                MessageBox.Show("Заполните все поля");
+                return;
+                //Passed = true;
+                //Close();
             }
             if (state == 0)
             {
@@ -70,20 +70,22 @@ namespace DB.Dialogs
 
         private void newUserButton_Click(object sender, EventArgs e)
         {
-            if (state == 0)
-            {
-                groupBox.Text = "Новый пользователь";
-                submitButton.Text = "Добавить";
-                newUserButton.Text = "Отмена";
-                state = 1;
-            }
-            else
-            {
-                groupBox.Text = "Вход в систему";
-                submitButton.Text = "Вход";
-                newUserButton.Text = "Новый пользователь";
-                state = 0;
-            }
+            //if (state == 0)
+            //{
+            //    groupBox.Text = "Новый пользователь";
+            //    submitButton.Text = "Добавить";
+            //    newUserButton.Text = "Отмена";
+            //    state = 1;
+            //}
+            //else
+            //{
+            //    groupBox.Text = "Вход в систему";
+            //    submitButton.Text = "Вход";
+            //    newUserButton.Text = "Новый пользователь";
+            //    state = 0;
+            //}
+
+            Close();
         }
     }
 }
