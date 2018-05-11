@@ -18,7 +18,7 @@ namespace DB.Dialogs
         public Organization Organization { get; set; }
         public ResponsiblePerson ResponsiblePerson { get; set; }
         public Bill Bill { get; set; }
-        public List<BillProduct> BillProduct { get; set; } = new List<BillProduct>();
+        //public List<BillProduct> BillProduct { get; set; } = new List<BillProduct>();
 
         public SupplyDialog(DialogState dialogState, long? id = null) : base(dialogState, id)
         {
@@ -103,13 +103,13 @@ namespace DB.Dialogs
                 {
                     EntityManager.InsertSupply(_supply);
                     EntityManager.InsertBill(Bill);
-                    BillProduct.ForEach(billProduct => EntityManager.InsertBillProduct(billProduct));
+                    Bill.Products.ForEach(billProduct => EntityManager.InsertBillProduct(billProduct));
                 }
                 else if (DialogState == DialogState.Edit)
                 {
                     EntityManager.UpdateSupply(_supply.SupplyId, _supply);
                     EntityManager.UpdateBill(Bill.BillId, Bill);
-                    BillProduct.ForEach(billProduct => EntityManager.UpdateBillProduct(billProduct.BillId, billProduct.ProductId, billProduct));
+                    Bill.Products.ForEach(billProduct => EntityManager.UpdateBillProduct(billProduct.BillId, billProduct.ProductId, billProduct));
                 }
                 this.Close();
             }
@@ -145,7 +145,7 @@ namespace DB.Dialogs
             var result = addProductToSupplyDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                if (BillProduct.Any(product => product.ProductId == addProductToSupplyDialog.BillProduct.ProductId))
+                if (Bill.Products.Any(product => product.ProductId == addProductToSupplyDialog.BillProduct.ProductId))
                 {
                     MessageBox.Show("В этом счёте уже добавлена такая продукция. " +
                                     "Вы можете изменить количество, цену или ндс в таблице", "Продукция уже добавлена", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -155,7 +155,7 @@ namespace DB.Dialogs
                     addProductToTable(addProductToSupplyDialog);
                     var billProduct = addProductToSupplyDialog.BillProduct;
                     billProduct.BillId = Bill.BillId;
-                    BillProduct.Add(billProduct);
+                    Bill.Products.Add(billProduct);
                 }
             }
         }
@@ -163,14 +163,14 @@ namespace DB.Dialogs
         private void removeProductButton_Click(object sender, EventArgs e)
         {
             var id = GetSelectedIdFromTable(productsTable);
-            BillProduct.Remove(BillProduct.First(billProduct => billProduct.ProductId == id));
+            Bill.Products.RemoveAll(billProduct => billProduct.ProductId == id);
             productsTable.Rows.Remove(productsTable.SelectedRows[0]);
-            updateTable();
+            updatePrices();
         }
 
-        private void updateTable()
+        private void updatePrices()
         {
-            
+            amountLabel.Text.Sum<>
         }
 
         private void addProductToTable(AddProductToSupplyDialog dialog)
@@ -180,7 +180,16 @@ namespace DB.Dialogs
             {
                 var product = EntityManager.GetProduct(billProduct.ProductId);
                 productsTable.Rows.Add(product.Id, product.Tu, product.Measure, product.Name, billProduct.Quantity, billProduct.Price, billProduct.Nds, billProduct.Sum);
-                amountLabel.Text = (double.Parse(amountLabel.Text) + billProduct.Sum).ToString();
+            }
+        }
+
+        private void addProductToTable(BillProduct billProd)
+        {
+            var billProduct = billProd;
+            if (billProduct != null)
+            {
+                var product = EntityManager.GetProduct(billProduct.ProductId);
+                productsTable.Rows.Add(product.Id, product.Tu, product.Measure, product.Name, billProduct.Quantity, billProduct.Price, billProduct.Nds, billProduct.Sum);
             }
         }
 
