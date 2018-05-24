@@ -44,6 +44,7 @@
             this.okButton = new System.Windows.Forms.Button();
             this.availableLable = new System.Windows.Forms.Label();
             this.priceLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.availableNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumeric)).BeginInit();
             this.SuspendLayout();
@@ -207,6 +208,16 @@
             this.priceLabel.TabIndex = 30;
             this.priceLabel.Text = "0";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(316, 157);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(33, 19);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Руб";
+            // 
             // ProductDialog
             // 
             this.AcceptButton = this.okButton;
@@ -215,6 +226,7 @@
             this.BackColor = System.Drawing.Color.Honeydew;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(483, 460);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.descriptionRichTextBox);
@@ -261,5 +273,6 @@
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Label availableLable;
         private System.Windows.Forms.Label priceLabel;
+        private System.Windows.Forms.Label label7;
     }
 }
