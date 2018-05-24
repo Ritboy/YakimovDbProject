@@ -152,10 +152,10 @@ namespace DB.Dialogs
                 }
                 else
                 {
-                    addProductToTable(addProductToSupplyDialog);
                     var billProduct = addProductToSupplyDialog.BillProduct;
                     billProduct.BillId = Bill.BillId;
                     Bill.Products.Add(billProduct);
+                    addProductToTable(addProductToSupplyDialog);
                 }
             }
         }
@@ -170,7 +170,8 @@ namespace DB.Dialogs
 
         private void updatePrices()
         {
-            amountLabel.Text.Sum<>
+            Bill.Amount = Bill.Products.Sum<BillProduct>(product => product.Price * product.Quantity);
+            amountLabel.Text = Bill.Amount.ToString();
         }
 
         private void addProductToTable(AddProductToSupplyDialog dialog)
@@ -181,6 +182,7 @@ namespace DB.Dialogs
                 var product = EntityManager.GetProduct(billProduct.ProductId);
                 productsTable.Rows.Add(product.Id, product.Tu, product.Measure, product.Name, billProduct.Quantity, billProduct.Price, billProduct.Nds, billProduct.Sum);
             }
+            updatePrices();
         }
 
         private void addProductToTable(BillProduct billProd)
@@ -212,6 +214,11 @@ namespace DB.Dialogs
                 addProductButton.Visible = false;
                 removeProductButton.Visible = false;
                 okButton.Visible = false;
+                discountCheckBox.Checked = false;
+                discountCheckBox.Visible = false;
+                discountNumeric.Value = 0;
+                discountNumeric.Visible = false;
+                discountLabel.Text = Bill.Discount.ToString();
             }
         }
 

@@ -71,5 +71,23 @@ namespace DB.Dialogs
         {
             UpdateTable(organizationsTable, EntityManager.GetOrganizationsCompactTable());
         }
+
+        private void organizationSearchButton_Click(object sender, EventArgs e)
+        {
+            var name = organizationNameTextBox.Text;
+            var inn = organizationInnTextBox.Text;
+            var account = organizationAccountTextBox.Text;
+
+            UpdateTable(organizationsTable, EntityManager.GetFilteredOrganizationTable(name, inn, account));
+        }
+
+        private void organizationClearButton_Click(object sender, EventArgs e)
+        {
+            organizationNameTextBox.Text = "";
+            organizationInnTextBox.Text = "";
+            organizationAccountTextBox.Text = "";
+
+            updateTable();
+        }
     }
 }

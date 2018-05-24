@@ -13,6 +13,7 @@ namespace DB.Dialogs
     public partial class Auth : Form
     {
         public bool Passed { get; set; } = false;
+        public string Login { get; set; }
         private int state;
 
         public Auth()
@@ -41,7 +42,7 @@ namespace DB.Dialogs
         {
             if (loginTextBox.Text == "" || passwordTextBox.Text == "")
             {
-                MessageBox.Show("Заполните все поля");
+                MessageBox.Show("Заполните все поля", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
                 //Passed = true;
                 //Close();
@@ -55,6 +56,7 @@ namespace DB.Dialogs
                 else
                 {
                     Passed = true;
+                    Login = loginTextBox.Text;
                     this.Close();
                 }
             }

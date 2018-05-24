@@ -30,6 +30,86 @@ namespace DB
             return s != null;
         }
 
+        public static DataTable GetUsersTable()
+        {
+            var query = @"SELECT User_ID, Login, Lastname, Name, Post, Editable, Admin FROM User;";
+            var command = new SQLiteCommand(query, _connection);
+            _dataAdapter = new SQLiteDataAdapter(command);
+            var dataSet = new DataSet();
+            _dataAdapter.Fill(dataSet);
+            return dataSet.Tables[0];
+        }
+
+        public static User GetUser(long id)
+        {
+            var query = @"SELECT * FROM User WHERE User_ID = @id;";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@id", id);
+            var reader = command.ExecuteReader();
+            reader.Read();
+            return new User()
+            {
+                UserId = reader.GetInt64(0),
+                Login = reader.GetString(1),
+                Password = reader.GetString(2),
+                Lastname = reader.GetString(3),
+                Name = reader.GetString(4),
+                Post = reader.GetString(5),
+                IsEditable = reader.GetInt32(6) == 1 ? true : false,
+                IsAdmin = reader.GetInt32(7) == 1 ? true : false
+            };
+        }
+
+        public static long GetUserId(string login)
+        {
+            var query = "SELECT User_ID FROM User WHERE Login = @login";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("login", login);
+            return (long)command.ExecuteScalar();
+        }
+
+        public static void InsertUser(User user)
+        {
+            var query = @"INSERT INTO User(Login, Password, Lastname, Name, Post, Editable, Admin)
+                          VALUES(@login, @password, @lastname, @name, @post, @editable, @admin);";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@login", user.Login);
+            command.Parameters.AddWithValue("@password", user.Password);
+            command.Parameters.AddWithValue("@lastname", user.Lastname);
+            command.Parameters.AddWithValue("@name", user.Name);
+            command.Parameters.AddWithValue("@post", user.Post);
+            command.Parameters.AddWithValue("@editable", user.IsEditable);
+            command.Parameters.AddWithValue("@admin", user.IsAdmin);
+
+            command.ExecuteNonQuery();
+        }
+
+        public static void UpdateUser(long id, User user)
+        {
+            var query = @"UPDATE User SET Login = @login, Password = @password, Lastname = @lastname,
+                                          Name = @name, Post = @post, Editable = @editable, Admin = @admin
+                          WHERE User_ID = @id;";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@login", user.Login);
+            command.Parameters.AddWithValue("@password", user.Password);
+            command.Parameters.AddWithValue("@lastname", user.Lastname);
+            command.Parameters.AddWithValue("@name", user.Name);
+            command.Parameters.AddWithValue("@post", user.Post);
+            command.Parameters.AddWithValue("@editable", user.IsEditable);
+            command.Parameters.AddWithValue("@admin", user.IsAdmin);
+            command.Parameters.AddWithValue("@id", id);
+
+            command.ExecuteNonQuery();
+        }
+
+        public static void DeleteUser(long id)
+        {
+            var query = @"DELETE FROM User WHERE User_ID = @id;";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+        }
+
         public static void AddNewUser(string login, string pass)
         {
             var query = "INSERT INTO User(Login, Password) VALUES(@login, @pass);";
@@ -42,6 +122,38 @@ namespace DB
         //
         //Supplies
         //
+
+        public static DataTable GetFilteredSuppliesTable(
+            DateTime dateFrom, DateTime dateTill, 
+            string productName, string organizationName)
+        {
+            string query = $@"SELECT Supply.Supply_ID, 
+	Preparation_date AS 'PreparationDate',
+    Bill.Bill_ID AS 'Bill',
+    Organization.Name AS 'OrganizationName',
+    CASE Status
+        WHEN 0 THEN 'Счёт отправлен'
+        WHEN 1 THEN 'Оплата получена'
+        WHEN 2 THEN 'Товар отправлен'
+        WHEN 3 THEN 'Товар получен'
+        WHEN 4 THEN 'Сделка закрыта'
+    END AS 'Status' FROM Supply, Bill, Bill_Product, Product, Organization
+where Supply.Bill_ID = Bill.Bill_ID and
+Bill.Bill_ID = Bill_Product.Bill_Id and
+Bill_Product.Product_Id = Product.Product_ID and
+Product.Name like '%{productName}%' and
+Supply.Organization_ID = Organization.Organization_ID and
+Organization.Name like '%{organizationName}%' and
+Preparation_date
+between date(@dateFrom) and date(@dateTill);";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("@dateFrom", dateFrom.ToString("yyyy-MM-dd"));
+            command.Parameters.AddWithValue("@dateTill", dateTill.ToString("yyyy-MM-dd"));
+            _dataAdapter = new SQLiteDataAdapter(command);
+            var dataSet = new DataSet();
+            _dataAdapter.Fill(dataSet);
+            return dataSet.Tables[0];
+        }
 
         public static DataTable GetSuppliesMainTable()
         {
@@ -108,9 +220,9 @@ namespace DB
             command.Parameters.AddWithValue("@organizationId", supply.OrganizationId);
             command.Parameters.AddWithValue("@billId", supply.BillId);
             command.Parameters.AddWithValue("@responsiblePersonId", supply.ResponsiblePersonId);
-            command.Parameters.AddWithValue("@preparationDate", supply.Preparation_date);
-            command.Parameters.AddWithValue("@expirationDate", supply.Expiration_date);
-            command.Parameters.AddWithValue("@executionDate", supply.Execution_date);
+            command.Parameters.AddWithValue("@preparationDate", supply.Preparation_date.ToString("yyyy-MM-dd"));
+            command.Parameters.AddWithValue("@expirationDate", supply.Expiration_date.ToString("yyyy-MM-dd"));
+            command.Parameters.AddWithValue("@executionDate", supply.Execution_date.ToString("yyyy-MM-dd"));
             command.Parameters.AddWithValue("@status", supply.Status);
 
             command.ExecuteNonQuery();
@@ -128,9 +240,9 @@ namespace DB
             command.Parameters.AddWithValue("@organizationId", supply.Organization);
             command.Parameters.AddWithValue("@billId", supply.BillId);
             command.Parameters.AddWithValue("@responsiblePersonId", supply.ResponsiblePersonId);
-            command.Parameters.AddWithValue("@preparationDate", supply.Preparation_date);
-            command.Parameters.AddWithValue("@expirationDate", supply.Expiration_date);
-            command.Parameters.AddWithValue("@executionDate", supply.Execution_date);
+            command.Parameters.AddWithValue("@preparationDate", supply.Preparation_date.ToString("yyyy-MM-dd"));
+            command.Parameters.AddWithValue("@expirationDate", supply.Expiration_date.ToString("yyyy-MM-dd"));
+            command.Parameters.AddWithValue("@executionDate", supply.Execution_date.ToString("yyyy-MM-dd"));
             command.Parameters.AddWithValue("@status", supply.Status);
 
             command.ExecuteNonQuery();
@@ -177,6 +289,24 @@ namespace DB
         {
             var query = "SELECT Organization_ID, Inn, Name FROM Organization";
             _dataAdapter = new SQLiteDataAdapter(query, _connection);
+            var dataSet = new DataSet();
+            _dataAdapter.Fill(dataSet);
+            return dataSet.Tables[0];
+        }
+
+        public static DataTable GetFilteredOrganizationTable(string name, string inn, string account)
+        {
+            string query = $@"SELECT 
+            Organization_ID AS 'Id',
+            Name,
+            Address,
+            Inn,
+            Settlement_account AS 'SettlementAccount',
+            Email
+            FROM Organization WHERE Name like '%{name}%' AND Inn like '%{inn}%' AND 
+            Settlement_account like '%{account}%';";
+            var command = new SQLiteCommand(query, _connection);
+            _dataAdapter = new SQLiteDataAdapter(command);
             var dataSet = new DataSet();
             _dataAdapter.Fill(dataSet);
             return dataSet.Tables[0];
@@ -281,6 +411,26 @@ namespace DB
             Price AS 'Price'
             FROM Product;";
             _dataAdapter = new SQLiteDataAdapter(query, _connection);
+            var dataSet = new DataSet();
+            _dataAdapter.Fill(dataSet);
+            return dataSet.Tables[0];
+        }
+
+        public static DataTable GetFilteredProductsTable(
+            string name, string tu, int availableFrom, int availableTill)
+        {
+            string query = $@"SELECT 
+            Product_ID AS 'Id',
+            Name AS 'Name',
+            TU AS 'Tu',
+            Available AS 'Available',
+            Measure AS 'Measure',
+            Price AS 'Price'
+            FROM Product
+            WHERE Name like '%{name}%' AND TU like '%{tu}%' AND 
+            Available BETWEEN {availableFrom} AND {availableTill};";
+            var command = new SQLiteCommand(query, _connection);
+            _dataAdapter = new SQLiteDataAdapter(command);
             var dataSet = new DataSet();
             _dataAdapter.Fill(dataSet);
             return dataSet.Tables[0];
@@ -449,6 +599,19 @@ namespace DB
             return dataSet.Tables[0];
         }
 
+        public static DataTable GetResponsiblePersonFilteredTableByOrganizationId(long organizationId, string lastName, string proxy)
+        {
+            var query = $@"SELECT Responsible_person_ID AS Id, Lastname, Post, Proxy_ID 
+                          FROM ResponsiblePerson 
+                            WHERE Organization_ID = @organizationId AND Lastname LIKE '%{lastName}%' AND Proxy_ID LIKE '%{proxy}%';";
+            var command = new SQLiteCommand(query, _connection);
+            command.Parameters.AddWithValue("organizationId", organizationId);
+            _dataAdapter = new SQLiteDataAdapter(command);
+            var dataSet = new DataSet();
+            _dataAdapter.Fill(dataSet);
+            return dataSet.Tables[0];
+        }
+
         public static ResponsiblePerson GetResponsiblePerson(long id)
         {
             var qery = @"SELECT * FROM ResponsiblePerson WHERE Responsible_person_ID = @id;";
@@ -484,8 +647,8 @@ namespace DB
             command.Parameters.AddWithValue("@lastname", responsiblePerson.Lastname);
             command.Parameters.AddWithValue("@name", responsiblePerson.Name);
             command.Parameters.AddWithValue("@patronymic", responsiblePerson.Patronymic);
-            command.Parameters.AddWithValue("@proxyReceivedDate", responsiblePerson.ProxyReceivedDate);
-            command.Parameters.AddWithValue("@proxyExpiredDate", responsiblePerson.ProxyExpiredDate);
+            command.Parameters.AddWithValue("@proxyReceivedDate", responsiblePerson.ProxyReceivedDate.ToString("yyyy-MM-dd"));
+            command.Parameters.AddWithValue("@proxyExpiredDate", responsiblePerson.ProxyExpiredDate.ToString("yyyy-MM-dd"));
             command.ExecuteNonQuery();
         }
 
@@ -503,8 +666,8 @@ namespace DB
             command.Parameters.AddWithValue("@lastname", responsiblePerson.Lastname);
             command.Parameters.AddWithValue("@name", responsiblePerson.Name);
             command.Parameters.AddWithValue("@patronymic", responsiblePerson.Patronymic);
-            command.Parameters.AddWithValue("@proxyReceivedDate", responsiblePerson.ProxyReceivedDate);
-            command.Parameters.AddWithValue("@proxyExpiredDate", responsiblePerson.ProxyExpiredDate);
+            command.Parameters.AddWithValue("@proxyReceivedDate", responsiblePerson.ProxyReceivedDate.ToString("yyyy-MM-dd"));
+            command.Parameters.AddWithValue("@proxyExpiredDate", responsiblePerson.ProxyExpiredDate.ToString("yyyy-MM-dd"));
             command.Parameters.AddWithValue("@id", id);
 
             command.ExecuteNonQuery();

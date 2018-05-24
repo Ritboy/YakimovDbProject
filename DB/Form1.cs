@@ -15,13 +15,23 @@ namespace DB
         //private SQLiteDataAdapter _dataAdapter;
         private DataTable dataTable;
 
-        public Form1()
+        private readonly User _user;
+        private readonly string _login;
+        private readonly long _userId;
+
+        public bool DoRelogin { get; private set; } = false;
+
+        public Form1(string login)
         {
             InitializeComponent();
 
             supplyTable.AutoGenerateColumns = false;
             organizationsTable.AutoGenerateColumns = false;
             productTable.AutoGenerateColumns = false;
+
+            _login = login;
+            _userId = EntityManager.GetUserId(_login);
+            _user = EntityManager.GetUser(_userId);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,6 +42,17 @@ namespace DB
             }
 
             updateAllTables();
+            userNameLabel.Text = _user.Login;
+            if (!_user.IsAdmin)
+            {
+                manageUsersToolStripMenuItem.Visible = false;
+            }
+            if (!_user.IsEditable)
+            {
+                organizationEditableButtonsPanel.Visible = false;
+                productEditableButtonsPanel.Visible = false;
+                supplyEditableButtonsPanel.Visible = false;
+            }
         }
 
         private void updateAllTables()
@@ -96,14 +117,16 @@ namespace DB
 
             if (grid.Columns[e.ColumnIndex] is DataGridViewLinkColumn)
             {
+                var supplyId = GetSelectedIdFromTable(supplyTable);
+                var supply = EntityManager.GetSupply(supplyId);
                 switch (grid.Columns[e.ColumnIndex].DataPropertyName)
                 {
                     case "Bill":
-                        var openBillDialog = new OpenBillDialog(Convert.ToInt32(grid.SelectedCells[0].Value));
+                        var openBillDialog = new OpenBillDialog((int)supply.BillId);
                         openBillDialog.ShowDialog(this);
                         break;
                     case "OrganizationName":
-                        var organizationDialog = new OrganizationDialog(DialogState.Open, Convert.ToInt32(grid.SelectedCells[0].Value));
+                        var organizationDialog = new OrganizationDialog(DialogState.Open, supply.OrganizationId);
                         organizationDialog.ShowDialog(this);
                         break;
                 }
@@ -178,9 +201,98 @@ namespace DB
             updateProductTable();
         }
 
-        private void label12_Click(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
         {
+            var fromDateTime = supplyFromSearchDateTime.Value;
+            var tillDateTime = supplyTillSearchDateTime.Value;
+            var productName = supplyProductionNameTextBox.Text;
+            var organizationName = supplyOrganizationNameTextBox.Text;
 
+            supplyTable.DataSource = EntityManager.GetFilteredSuppliesTable(fromDateTime, tillDateTime, productName, organizationName);
+        }
+
+        private void supplyClearButton_Click(object sender, EventArgs e)
+        {
+            supplyFromSearchDateTime.Value = DateTime.Today;
+            supplyTillSearchDateTime.Value = DateTime.Today;
+            supplyProductionNameTextBox.Text = "";
+            supplyOrganizationNameTextBox.Text = "";
+
+            updateSuppliesTable();
+        }
+
+        private void addUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var manageUsers = new ManageUsers();
+            manageUsers.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ChangePasswordDialog(_userId).ShowDialog();
+        }
+
+        private void changeUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoRelogin = true;
+            Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AboutBox().ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Подтвердите выход из программы", "Система учета поставок КСИ - Подтверждение выхода", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
+
+        private void organizationSearchButton_Click(object sender, EventArgs e)
+        {
+            var name = organizationNameTextBox.Text;
+            var inn = organizationInnTextBox.Text;
+            var account = organizationAccountTextBox.Text;
+
+            UpdateTable(organizationsTable, EntityManager.GetFilteredOrganizationTable(name, inn, account));
+        }
+
+        private void organizationClearButton_Click(object sender, EventArgs e)
+        {
+            organizationNameTextBox.Text = "";
+            organizationInnTextBox.Text = "";
+            organizationAccountTextBox.Text = "";
+
+            updateOrganizationTable();
+        }
+
+        private void productSearchButton_Click(object sender, EventArgs e)
+        {
+            var name = productNameTextBox.Text;
+            var tu = productTuTextBox.Text;
+            var availableFrom = (int)productAvailableFromNumeric.Value;
+            var availableTill = (int)productAvailableTillNumeric.Value;
+
+            UpdateTable(productTable, EntityManager.GetFilteredProductsTable(name, tu, availableFrom, availableTill));
+        }
+
+        private void productClearButton_Click(object sender, EventArgs e)
+        {
+            productNameTextBox.Text = "";
+            productTuTextBox.Text = "";
+            productAvailableFromNumeric.Value = 0;
+            productAvailableTillNumeric.Value = 100;
+
+            updateProductTable();
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new HelpDialog().ShowDialog();
         }
     }
 }

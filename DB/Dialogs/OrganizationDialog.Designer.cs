@@ -155,6 +155,7 @@
             this.postIndexTextBox.Name = "postIndexTextBox";
             this.postIndexTextBox.Size = new System.Drawing.Size(281, 27);
             this.postIndexTextBox.TabIndex = 11;
+            this.postIndexTextBox.TextChanged += new System.EventHandler(this.postIndexTextBox_TextChanged);
             // 
             // label6
             // 
@@ -174,6 +175,7 @@
             this.innTextBox.Name = "innTextBox";
             this.innTextBox.Size = new System.Drawing.Size(281, 27);
             this.innTextBox.TabIndex = 13;
+            this.innTextBox.TextChanged += new System.EventHandler(this.innTextBox_TextChanged);
             // 
             // label7
             // 
@@ -193,6 +195,7 @@
             this.bikTextBox.Name = "bikTextBox";
             this.bikTextBox.Size = new System.Drawing.Size(281, 27);
             this.bikTextBox.TabIndex = 15;
+            this.bikTextBox.TextChanged += new System.EventHandler(this.bikTextBox_TextChanged);
             // 
             // label8
             // 
@@ -212,6 +215,7 @@
             this.correspondentAccountTextBox.Name = "correspondentAccountTextBox";
             this.correspondentAccountTextBox.Size = new System.Drawing.Size(281, 27);
             this.correspondentAccountTextBox.TabIndex = 17;
+            this.correspondentAccountTextBox.TextChanged += new System.EventHandler(this.correspondentAccountTextBox_TextChanged);
             // 
             // label9
             // 
@@ -231,6 +235,7 @@
             this.settlementAccountTextBox.Name = "settlementAccountTextBox";
             this.settlementAccountTextBox.Size = new System.Drawing.Size(281, 27);
             this.settlementAccountTextBox.TabIndex = 19;
+            this.settlementAccountTextBox.TextChanged += new System.EventHandler(this.settlementAccountTextBox_TextChanged);
             // 
             // label10
             // 
@@ -250,6 +255,7 @@
             this.okpoTextBox.Name = "okpoTextBox";
             this.okpoTextBox.Size = new System.Drawing.Size(281, 27);
             this.okpoTextBox.TabIndex = 21;
+            this.okpoTextBox.TextChanged += new System.EventHandler(this.okpoTextBox_TextChanged);
             // 
             // label11
             // 
@@ -269,6 +275,7 @@
             this.ogrnTextBox.Name = "ogrnTextBox";
             this.ogrnTextBox.Size = new System.Drawing.Size(281, 27);
             this.ogrnTextBox.TabIndex = 23;
+            this.ogrnTextBox.TextChanged += new System.EventHandler(this.ogrnTextBox_TextChanged);
             // 
             // label12
             // 

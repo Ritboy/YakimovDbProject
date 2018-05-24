@@ -126,6 +126,11 @@
             // 
             this.availableNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.availableNumeric.Location = new System.Drawing.Point(190, 122);
+            this.availableNumeric.Maximum = new decimal(new int[] {
+            200000000,
+            0,
+            0,
+            0});
             this.availableNumeric.Name = "availableNumeric";
             this.availableNumeric.Size = new System.Drawing.Size(120, 26);
             this.availableNumeric.TabIndex = 12;
@@ -134,6 +139,11 @@
             // 
             this.priceNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.priceNumeric.Location = new System.Drawing.Point(190, 154);
+            this.priceNumeric.Maximum = new decimal(new int[] {
+            200000000,
+            0,
+            0,
+            0});
             this.priceNumeric.Name = "priceNumeric";
             this.priceNumeric.Size = new System.Drawing.Size(120, 26);
             this.priceNumeric.TabIndex = 13;
@@ -197,7 +207,7 @@
             this.priceLabel.TabIndex = 30;
             this.priceLabel.Text = "0";
             // 
-            // AddNewProduct
+            // ProductDialog
             // 
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,7 +234,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AddNewProduct";
+            this.Name = "ProductDialog";
             this.Text = "Продукция";
             ((System.ComponentModel.ISupportInitialize)(this.availableNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumeric)).EndInit();

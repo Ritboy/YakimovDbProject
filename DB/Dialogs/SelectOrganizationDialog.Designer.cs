@@ -33,21 +33,21 @@
             this.openButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.organizationClearButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.organizationInnTextBox = new System.Windows.Forms.TextBox();
+            this.organizationAccountTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.organizationNameTextBox = new System.Windows.Forms.TextBox();
+            this.organizationSearchButton = new System.Windows.Forms.Button();
             this.organizationsTable = new System.Windows.Forms.DataGridView();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.okButton = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.okButton = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.organizationsTable)).BeginInit();
             this.SuspendLayout();
@@ -60,15 +60,15 @@
             this.groupBox2.Controls.Add(this.openButton);
             this.groupBox2.Controls.Add(this.removeButton);
             this.groupBox2.Controls.Add(this.editButton);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.organizationClearButton);
             this.groupBox2.Controls.Add(this.addButton);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.organizationInnTextBox);
+            this.groupBox2.Controls.Add(this.organizationAccountTextBox);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.organizationNameTextBox);
+            this.groupBox2.Controls.Add(this.organizationSearchButton);
             this.groupBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
@@ -113,16 +113,17 @@
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
-            // button2
+            // organizationClearButton
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(369, 57);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 30);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Сброс";
-            this.button2.UseVisualStyleBackColor = true;
+            this.organizationClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.organizationClearButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organizationClearButton.Location = new System.Drawing.Point(369, 57);
+            this.organizationClearButton.Name = "organizationClearButton";
+            this.organizationClearButton.Size = new System.Drawing.Size(80, 30);
+            this.organizationClearButton.TabIndex = 15;
+            this.organizationClearButton.Text = "Сброс";
+            this.organizationClearButton.UseVisualStyleBackColor = true;
+            this.organizationClearButton.Click += new System.EventHandler(this.organizationClearButton_Click);
             // 
             // addButton
             // 
@@ -156,21 +157,21 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "По номеру счёта";
             // 
-            // textBox4
+            // organizationInnTextBox
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4.Location = new System.Drawing.Point(175, 53);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(194, 26);
-            this.textBox4.TabIndex = 10;
+            this.organizationInnTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organizationInnTextBox.Location = new System.Drawing.Point(161, 53);
+            this.organizationInnTextBox.Name = "organizationInnTextBox";
+            this.organizationInnTextBox.Size = new System.Drawing.Size(194, 26);
+            this.organizationInnTextBox.TabIndex = 10;
             // 
-            // textBox5
+            // organizationAccountTextBox
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox5.Location = new System.Drawing.Point(175, 85);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(194, 26);
-            this.textBox5.TabIndex = 12;
+            this.organizationAccountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organizationAccountTextBox.Location = new System.Drawing.Point(161, 85);
+            this.organizationAccountTextBox.Name = "organizationAccountTextBox";
+            this.organizationAccountTextBox.Size = new System.Drawing.Size(194, 26);
+            this.organizationAccountTextBox.TabIndex = 12;
             // 
             // label4
             // 
@@ -182,25 +183,26 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "По наименованию";
             // 
-            // textBox2
+            // organizationNameTextBox
             // 
-            this.textBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(175, 21);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(194, 26);
-            this.textBox2.TabIndex = 8;
+            this.organizationNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.organizationNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organizationNameTextBox.Location = new System.Drawing.Point(161, 21);
+            this.organizationNameTextBox.Name = "organizationNameTextBox";
+            this.organizationNameTextBox.Size = new System.Drawing.Size(194, 26);
+            this.organizationNameTextBox.TabIndex = 8;
             // 
-            // button4
+            // organizationSearchButton
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(369, 21);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(80, 30);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Поиск";
-            this.button4.UseVisualStyleBackColor = true;
+            this.organizationSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.organizationSearchButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organizationSearchButton.Location = new System.Drawing.Point(369, 21);
+            this.organizationSearchButton.Name = "organizationSearchButton";
+            this.organizationSearchButton.Size = new System.Drawing.Size(80, 30);
+            this.organizationSearchButton.TabIndex = 0;
+            this.organizationSearchButton.Text = "Поиск";
+            this.organizationSearchButton.UseVisualStyleBackColor = true;
+            this.organizationSearchButton.Click += new System.EventHandler(this.organizationSearchButton_Click);
             // 
             // organizationsTable
             // 
@@ -231,6 +233,28 @@
             this.organizationsTable.Size = new System.Drawing.Size(457, 322);
             this.organizationsTable.TabIndex = 4;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Organization_ID";
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "Name";
+            this.Column9.HeaderText = "Наименование органзации";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "Inn";
+            this.Column8.HeaderText = "ИНН";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -254,28 +278,6 @@
             this.okButton.Text = "Ок";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Organization_ID";
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "Name";
-            this.Column9.HeaderText = "Наименование органзации";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "Inn";
-            this.Column8.HeaderText = "ИНН";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
             // 
             // SelectOrganizationDialog
             // 
@@ -311,16 +313,16 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox organizationInnTextBox;
+        private System.Windows.Forms.TextBox organizationAccountTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox organizationNameTextBox;
+        private System.Windows.Forms.Button organizationSearchButton;
         private System.Windows.Forms.DataGridView organizationsTable;
         private System.Windows.Forms.Button openButton;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button editButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button organizationClearButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button okButton;

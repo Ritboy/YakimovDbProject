@@ -57,7 +57,7 @@
             this.loginTextBox.Location = new System.Drawing.Point(165, 25);
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(252, 26);
-            this.loginTextBox.TabIndex = 0;
+            this.loginTextBox.TabIndex = 1;
             // 
             // groupBox
             // 
@@ -90,7 +90,7 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(252, 26);
-            this.passwordTextBox.TabIndex = 3;
+            this.passwordTextBox.TabIndex = 2;
             // 
             // submitButton
             // 
@@ -98,7 +98,7 @@
             this.submitButton.Location = new System.Drawing.Point(266, 206);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(101, 34);
-            this.submitButton.TabIndex = 1;
+            this.submitButton.TabIndex = 3;
             this.submitButton.Text = "Вход";
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
@@ -109,7 +109,7 @@
             this.newUserButton.Location = new System.Drawing.Point(373, 206);
             this.newUserButton.Name = "newUserButton";
             this.newUserButton.Size = new System.Drawing.Size(115, 34);
-            this.newUserButton.TabIndex = 3;
+            this.newUserButton.TabIndex = 4;
             this.newUserButton.Text = "Выход";
             this.newUserButton.UseVisualStyleBackColor = true;
             this.newUserButton.Click += new System.EventHandler(this.newUserButton_Click);

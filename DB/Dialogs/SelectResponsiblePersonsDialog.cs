@@ -84,5 +84,26 @@ namespace DB.Dialogs
             DialogResult = DialogResult.OK;
             Close();
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            var lastname = lastNameTextBox.Text;
+            var proxy = proxyTextBox.Text;
+
+            UpdateTable(grid, EntityManager.GetResponsiblePersonFilteredTableByOrganizationId(_organization.OrganizationId, lastname, proxy));
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            lastNameTextBox.Text = "";
+            proxyTextBox.Text = "";
+
+            updateTable();
+        }
+
+        private void organizationLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new OrganizationDialog(DialogState.Open, _organization.OrganizationId).ShowDialog();
+        }
     }
 }

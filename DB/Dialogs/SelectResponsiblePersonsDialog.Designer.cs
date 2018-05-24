@@ -38,9 +38,9 @@
             this.addButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.proxyTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.grid = new System.Windows.Forms.DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,9 +64,9 @@
             this.groupBox2.Controls.Add(this.addButton);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.proxyTextBox);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.lastNameTextBox);
             this.groupBox2.Controls.Add(this.searchButton);
             this.groupBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
@@ -85,6 +85,7 @@
             this.organizationLabel.TabIndex = 19;
             this.organizationLabel.TabStop = true;
             this.organizationLabel.Text = "Организация";
+            this.organizationLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.organizationLabel_LinkClicked);
             // 
             // openButton
             // 
@@ -132,6 +133,7 @@
             this.clearButton.TabIndex = 15;
             this.clearButton.Text = "Сброс";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // addButton
             // 
@@ -165,13 +167,13 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Организация";
             // 
-            // textBox4
+            // proxyTextBox
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4.Location = new System.Drawing.Point(175, 53);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(194, 26);
-            this.textBox4.TabIndex = 10;
+            this.proxyTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.proxyTextBox.Location = new System.Drawing.Point(175, 53);
+            this.proxyTextBox.Name = "proxyTextBox";
+            this.proxyTextBox.Size = new System.Drawing.Size(194, 26);
+            this.proxyTextBox.TabIndex = 10;
             // 
             // label4
             // 
@@ -183,13 +185,13 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Фамилия";
             // 
-            // textBox2
+            // lastNameTextBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(175, 21);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(194, 26);
-            this.textBox2.TabIndex = 8;
+            this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lastNameTextBox.Location = new System.Drawing.Point(175, 21);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(194, 26);
+            this.lastNameTextBox.TabIndex = 8;
             // 
             // searchButton
             // 
@@ -201,6 +203,7 @@
             this.searchButton.TabIndex = 0;
             this.searchButton.Text = "Поиск";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // grid
             // 
@@ -316,9 +319,9 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox proxyTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.Button cancelButton;

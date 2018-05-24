@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -46,6 +47,11 @@ namespace DB.Dialogs
 
         protected override void onOkButtonClick(object sender, EventArgs e)
         {
+            if (this.Controls.OfType<TextBox>().Any(textBox => textBox.Text == ""))
+            {
+                MessageBox.Show("Необходимо заполнить все поля", "Система учёта поставок КСИ", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             var newOrganization = new Organization()
             {
                 Name = nameTextBox.Text,
@@ -75,6 +81,62 @@ namespace DB.Dialogs
         private void nameTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void postIndexTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(postIndexTextBox.Text, "[^0-9]"))
+            {
+                postIndexTextBox.Text = postIndexTextBox.Text.Remove(postIndexTextBox.Text.Length - 1);
+            }
+        }
+
+        private void innTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(innTextBox.Text, "[^0-9]"))
+            {
+                innTextBox.Text = innTextBox.Text.Remove(innTextBox.Text.Length - 1);
+            }
+        }
+
+        private void bikTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(bikTextBox.Text, "[^0-9]"))
+            {
+                bikTextBox.Text = postIndexTextBox.Text.Remove(bikTextBox.Text.Length - 1);
+            }
+        }
+
+        private void correspondentAccountTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(correspondentAccountTextBox.Text, "[^0-9]"))
+            {
+                correspondentAccountTextBox.Text = correspondentAccountTextBox.Text.Remove(correspondentAccountTextBox.Text.Length - 1);
+            }
+        }
+
+        private void settlementAccountTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(settlementAccountTextBox.Text, "[^0-9]"))
+            {
+                settlementAccountTextBox.Text = settlementAccountTextBox.Text.Remove(settlementAccountTextBox.Text.Length - 1);
+            }
+        }
+
+        private void okpoTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(okpoTextBox.Text, "[^0-9]"))
+            {
+                okpoTextBox.Text = okpoTextBox.Text.Remove(okpoTextBox.Text.Length - 1);
+            }
+        }
+
+        private void ogrnTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(ogrnTextBox.Text, "[^0-9]"))
+            {
+                ogrnTextBox.Text = ogrnTextBox.Text.Remove(ogrnTextBox.Text.Length - 1);
+            }
         }
     }
 

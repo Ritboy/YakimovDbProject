@@ -1,4 +1,6 @@
-﻿namespace DB
+﻿using System;
+
+namespace DB
 {
     partial class Form1
     {
@@ -28,54 +30,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.openSupplyButton = new System.Windows.Forms.Button();
+            this.supplyEditableButtonsPanel = new System.Windows.Forms.Panel();
             this.editSupplyButton = new System.Windows.Forms.Button();
             this.removeSupplyButton = new System.Windows.Forms.Button();
             this.addSupplyButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.userNameLabel = new System.Windows.Forms.Label();
+            this.openSupplyButton = new System.Windows.Forms.Button();
+            this.supplyFilter = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.supplyOrganizationNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.supplyProductionNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.supplyTillSearchDateTime = new System.Windows.Forms.DateTimePicker();
+            this.supplyFromSearchDateTime = new System.Windows.Forms.DateTimePicker();
+            this.supplyClearButton = new System.Windows.Forms.Button();
+            this.supplySearchButton = new System.Windows.Forms.Button();
             this.supplyTable = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.organizationEditableButtonsPanel = new System.Windows.Forms.Panel();
             this.editOrganizationButton = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.openOrganizationButton = new System.Windows.Forms.Button();
             this.removeOrganizationButton = new System.Windows.Forms.Button();
             this.addOrganizationButton = new System.Windows.Forms.Button();
+            this.organizationFilter = new System.Windows.Forms.GroupBox();
+            this.organizationClearButton = new System.Windows.Forms.Button();
+            this.organizationSearchButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.organizationInnTextBox = new System.Windows.Forms.TextBox();
+            this.organizationAccountTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.organizationNameTextBox = new System.Windows.Forms.TextBox();
+            this.openOrganizationButton = new System.Windows.Forms.Button();
             this.organizationsTable = new System.Windows.Forms.DataGridView();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.productEditableButtonsPanel = new System.Windows.Forms.Panel();
+            this.addProductButton = new System.Windows.Forms.Button();
+            this.editProductButton = new System.Windows.Forms.Button();
+            this.removeProductButton = new System.Windows.Forms.Button();
+            this.productFilter = new System.Windows.Forms.GroupBox();
+            this.productClearButton = new System.Windows.Forms.Button();
+            this.productSearchButton = new System.Windows.Forms.Button();
+            this.productAvailableTillNumeric = new System.Windows.Forms.NumericUpDown();
+            this.productAvailableFromNumeric = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.productTuTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.addProductButton = new System.Windows.Forms.Button();
-            this.editProductButton = new System.Windows.Forms.Button();
-            this.removeProductButton = new System.Windows.Forms.Button();
+            this.productNameTextBox = new System.Windows.Forms.TextBox();
             this.openProductButton = new System.Windows.Forms.Button();
             this.productTable = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,34 +106,31 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.supplyEditableButtonsPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.supplyFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplyTable)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.organizationEditableButtonsPanel.SuspendLayout();
+            this.organizationFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.organizationsTable)).BeginInit();
             this.tabPage3.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.productEditableButtonsPanel.SuspendLayout();
+            this.productFilter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productAvailableTillNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productAvailableFromNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -121,27 +140,93 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(958, 537);
+            this.tabControl1.Size = new System.Drawing.Size(958, 513);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.MintCream;
+            this.tabPage1.Controls.Add(this.supplyEditableButtonsPanel);
+            this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.openSupplyButton);
-            this.tabPage1.Controls.Add(this.editSupplyButton);
-            this.tabPage1.Controls.Add(this.removeSupplyButton);
-            this.tabPage1.Controls.Add(this.addSupplyButton);
-            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.supplyFilter);
             this.tabPage1.Controls.Add(this.supplyTable);
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(950, 506);
+            this.tabPage1.Size = new System.Drawing.Size(950, 482);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Поставки";
+            // 
+            // supplyEditableButtonsPanel
+            // 
+            this.supplyEditableButtonsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.supplyEditableButtonsPanel.Controls.Add(this.editSupplyButton);
+            this.supplyEditableButtonsPanel.Controls.Add(this.removeSupplyButton);
+            this.supplyEditableButtonsPanel.Controls.Add(this.addSupplyButton);
+            this.supplyEditableButtonsPanel.Location = new System.Drawing.Point(623, 82);
+            this.supplyEditableButtonsPanel.Name = "supplyEditableButtonsPanel";
+            this.supplyEditableButtonsPanel.Size = new System.Drawing.Size(326, 56);
+            this.supplyEditableButtonsPanel.TabIndex = 8;
+            // 
+            // editSupplyButton
+            // 
+            this.editSupplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.editSupplyButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editSupplyButton.Location = new System.Drawing.Point(111, 20);
+            this.editSupplyButton.Name = "editSupplyButton";
+            this.editSupplyButton.Size = new System.Drawing.Size(101, 30);
+            this.editSupplyButton.TabIndex = 4;
+            this.editSupplyButton.Text = "Изменить";
+            this.editSupplyButton.UseVisualStyleBackColor = true;
+            this.editSupplyButton.Click += new System.EventHandler(this.editSupplyButton_Click);
+            // 
+            // removeSupplyButton
+            // 
+            this.removeSupplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.removeSupplyButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.removeSupplyButton.Location = new System.Drawing.Point(218, 20);
+            this.removeSupplyButton.Name = "removeSupplyButton";
+            this.removeSupplyButton.Size = new System.Drawing.Size(101, 30);
+            this.removeSupplyButton.TabIndex = 3;
+            this.removeSupplyButton.Text = "Удалить";
+            this.removeSupplyButton.UseVisualStyleBackColor = true;
+            this.removeSupplyButton.Click += new System.EventHandler(this.removeSupplyButton_Click);
+            // 
+            // addSupplyButton
+            // 
+            this.addSupplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addSupplyButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addSupplyButton.Location = new System.Drawing.Point(4, 20);
+            this.addSupplyButton.Name = "addSupplyButton";
+            this.addSupplyButton.Size = new System.Drawing.Size(101, 30);
+            this.addSupplyButton.TabIndex = 2;
+            this.addSupplyButton.Text = "Добавить ";
+            this.addSupplyButton.UseVisualStyleBackColor = true;
+            this.addSupplyButton.Click += new System.EventHandler(this.addSupplyButton_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.userNameLabel);
+            this.panel1.Location = new System.Drawing.Point(689, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(225, 58);
+            this.panel1.TabIndex = 7;
+            // 
+            // userNameLabel
+            // 
+            this.userNameLabel.AutoSize = true;
+            this.userNameLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.userNameLabel.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.userNameLabel.Location = new System.Drawing.Point(167, 0);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Size = new System.Drawing.Size(58, 23);
+            this.userNameLabel.TabIndex = 6;
+            this.userNameLabel.Text = "admin";
             // 
             // openSupplyButton
             // 
@@ -155,62 +240,26 @@
             this.openSupplyButton.UseVisualStyleBackColor = true;
             this.openSupplyButton.Click += new System.EventHandler(this.openSupplyButton_Click);
             // 
-            // editSupplyButton
+            // supplyFilter
             // 
-            this.editSupplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editSupplyButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editSupplyButton.Location = new System.Drawing.Point(734, 102);
-            this.editSupplyButton.Name = "editSupplyButton";
-            this.editSupplyButton.Size = new System.Drawing.Size(101, 30);
-            this.editSupplyButton.TabIndex = 4;
-            this.editSupplyButton.Text = "Изменить";
-            this.editSupplyButton.UseVisualStyleBackColor = true;
-            this.editSupplyButton.Click += new System.EventHandler(this.editSupplyButton_Click);
-            // 
-            // removeSupplyButton
-            // 
-            this.removeSupplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.removeSupplyButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.removeSupplyButton.Location = new System.Drawing.Point(841, 102);
-            this.removeSupplyButton.Name = "removeSupplyButton";
-            this.removeSupplyButton.Size = new System.Drawing.Size(101, 30);
-            this.removeSupplyButton.TabIndex = 3;
-            this.removeSupplyButton.Text = "Удалить";
-            this.removeSupplyButton.UseVisualStyleBackColor = true;
-            this.removeSupplyButton.Click += new System.EventHandler(this.removeSupplyButton_Click);
-            // 
-            // addSupplyButton
-            // 
-            this.addSupplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addSupplyButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addSupplyButton.Location = new System.Drawing.Point(627, 102);
-            this.addSupplyButton.Name = "addSupplyButton";
-            this.addSupplyButton.Size = new System.Drawing.Size(101, 30);
-            this.addSupplyButton.TabIndex = 2;
-            this.addSupplyButton.Text = "Добавить ";
-            this.addSupplyButton.UseVisualStyleBackColor = true;
-            this.addSupplyButton.Click += new System.EventHandler(this.addSupplyButton_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Honeydew;
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(8, 10);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(481, 122);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Фильтр";
+            this.supplyFilter.BackColor = System.Drawing.Color.Honeydew;
+            this.supplyFilter.Controls.Add(this.label7);
+            this.supplyFilter.Controls.Add(this.supplyOrganizationNameTextBox);
+            this.supplyFilter.Controls.Add(this.label3);
+            this.supplyFilter.Controls.Add(this.supplyProductionNameTextBox);
+            this.supplyFilter.Controls.Add(this.label2);
+            this.supplyFilter.Controls.Add(this.label1);
+            this.supplyFilter.Controls.Add(this.supplyTillSearchDateTime);
+            this.supplyFilter.Controls.Add(this.supplyFromSearchDateTime);
+            this.supplyFilter.Controls.Add(this.supplyClearButton);
+            this.supplyFilter.Controls.Add(this.supplySearchButton);
+            this.supplyFilter.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.supplyFilter.Location = new System.Drawing.Point(8, 10);
+            this.supplyFilter.Name = "supplyFilter";
+            this.supplyFilter.Size = new System.Drawing.Size(481, 122);
+            this.supplyFilter.TabIndex = 1;
+            this.supplyFilter.TabStop = false;
+            this.supplyFilter.Text = "Фильтр";
             // 
             // label7
             // 
@@ -222,13 +271,13 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "По организации";
             // 
-            // textBox3
+            // supplyOrganizationNameTextBox
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(149, 86);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(229, 26);
-            this.textBox3.TabIndex = 10;
+            this.supplyOrganizationNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.supplyOrganizationNameTextBox.Location = new System.Drawing.Point(149, 86);
+            this.supplyOrganizationNameTextBox.Name = "supplyOrganizationNameTextBox";
+            this.supplyOrganizationNameTextBox.Size = new System.Drawing.Size(229, 26);
+            this.supplyOrganizationNameTextBox.TabIndex = 10;
             // 
             // label3
             // 
@@ -240,13 +289,13 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "По продукции";
             // 
-            // textBox1
+            // supplyProductionNameTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(149, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 26);
-            this.textBox1.TabIndex = 8;
+            this.supplyProductionNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.supplyProductionNameTextBox.Location = new System.Drawing.Point(149, 55);
+            this.supplyProductionNameTextBox.Name = "supplyProductionNameTextBox";
+            this.supplyProductionNameTextBox.Size = new System.Drawing.Size(229, 26);
+            this.supplyProductionNameTextBox.TabIndex = 8;
             // 
             // label2
             // 
@@ -268,54 +317,60 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Период с";
             // 
-            // dateTimePicker2
+            // supplyTillSearchDateTime
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(257, 22);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(121, 27);
-            this.dateTimePicker2.TabIndex = 5;
+            this.supplyTillSearchDateTime.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.supplyTillSearchDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.supplyTillSearchDateTime.Location = new System.Drawing.Point(257, 22);
+            this.supplyTillSearchDateTime.MaxDate = new System.DateTime(2200, 5, 14, 0, 0, 0, 0);
+            this.supplyTillSearchDateTime.MinDate = new System.DateTime(1918, 5, 14, 0, 0, 0, 0);
+            this.supplyTillSearchDateTime.Name = "supplyTillSearchDateTime";
+            this.supplyTillSearchDateTime.Size = new System.Drawing.Size(121, 27);
+            this.supplyTillSearchDateTime.TabIndex = 5;
+            this.supplyTillSearchDateTime.Value = new System.DateTime(2018, 5, 24, 0, 0, 0, 0);
             // 
-            // dateTimePicker1
+            // supplyFromSearchDateTime
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(94, 22);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(115, 27);
-            this.dateTimePicker1.TabIndex = 4;
+            this.supplyFromSearchDateTime.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.supplyFromSearchDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.supplyFromSearchDateTime.Location = new System.Drawing.Point(94, 22);
+            this.supplyFromSearchDateTime.MaxDate = new System.DateTime(2200, 5, 14, 0, 0, 0, 0);
+            this.supplyFromSearchDateTime.Name = "supplyFromSearchDateTime";
+            this.supplyFromSearchDateTime.Size = new System.Drawing.Size(115, 27);
+            this.supplyFromSearchDateTime.TabIndex = 4;
+            this.supplyFromSearchDateTime.Value = new System.DateTime(2018, 5, 24, 0, 0, 0, 0);
             // 
-            // button2
+            // supplyClearButton
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.supplyClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(387, 78);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 34);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Сброс";
-            this.button2.UseVisualStyleBackColor = true;
+            this.supplyClearButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.supplyClearButton.Location = new System.Drawing.Point(387, 70);
+            this.supplyClearButton.Name = "supplyClearButton";
+            this.supplyClearButton.Size = new System.Drawing.Size(88, 38);
+            this.supplyClearButton.TabIndex = 1;
+            this.supplyClearButton.Text = "Сброс";
+            this.supplyClearButton.UseVisualStyleBackColor = true;
+            this.supplyClearButton.Click += new System.EventHandler(this.supplyClearButton_Click);
             // 
-            // button1
+            // supplySearchButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.supplySearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(387, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 34);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Поиск";
-            this.button1.UseVisualStyleBackColor = true;
+            this.supplySearchButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.supplySearchButton.Location = new System.Drawing.Point(387, 22);
+            this.supplySearchButton.Name = "supplySearchButton";
+            this.supplySearchButton.Size = new System.Drawing.Size(88, 38);
+            this.supplySearchButton.TabIndex = 0;
+            this.supplySearchButton.Text = "Поиск";
+            this.supplySearchButton.UseVisualStyleBackColor = true;
+            this.supplySearchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // supplyTable
             // 
             this.supplyTable.AllowUserToAddRows = false;
             this.supplyTable.AllowUserToDeleteRows = false;
             this.supplyTable.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.supplyTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -328,43 +383,91 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.supplyTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.supplyTable.DefaultCellStyle = dataGridViewCellStyle4;
             this.supplyTable.Location = new System.Drawing.Point(8, 138);
             this.supplyTable.Name = "supplyTable";
             this.supplyTable.ReadOnly = true;
             this.supplyTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.supplyTable.Size = new System.Drawing.Size(934, 360);
+            this.supplyTable.Size = new System.Drawing.Size(934, 336);
             this.supplyTable.TabIndex = 0;
             this.supplyTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.supplyTable_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Supply_ID";
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "PreparationDate";
+            this.Column2.HeaderText = "Дата составления";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Bill";
+            this.Column4.HeaderText = "Счёт";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.TrackVisitedState = false;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "OrganizationName";
+            this.Column5.HeaderText = "Организация";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.TrackVisitedState = false;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "Status";
+            this.Column6.HeaderText = "Статус";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPage2.Controls.Add(this.editOrganizationButton);
-            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.organizationEditableButtonsPanel);
+            this.tabPage2.Controls.Add(this.organizationFilter);
             this.tabPage2.Controls.Add(this.openOrganizationButton);
-            this.tabPage2.Controls.Add(this.removeOrganizationButton);
-            this.tabPage2.Controls.Add(this.addOrganizationButton);
             this.tabPage2.Controls.Add(this.organizationsTable);
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(950, 506);
+            this.tabPage2.Size = new System.Drawing.Size(950, 482);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Организации";
+            // 
+            // organizationEditableButtonsPanel
+            // 
+            this.organizationEditableButtonsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.organizationEditableButtonsPanel.Controls.Add(this.editOrganizationButton);
+            this.organizationEditableButtonsPanel.Controls.Add(this.removeOrganizationButton);
+            this.organizationEditableButtonsPanel.Controls.Add(this.addOrganizationButton);
+            this.organizationEditableButtonsPanel.Location = new System.Drawing.Point(659, 95);
+            this.organizationEditableButtonsPanel.Name = "organizationEditableButtonsPanel";
+            this.organizationEditableButtonsPanel.Size = new System.Drawing.Size(290, 43);
+            this.organizationEditableButtonsPanel.TabIndex = 18;
             // 
             // editOrganizationButton
             // 
             this.editOrganizationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.editOrganizationButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editOrganizationButton.Location = new System.Drawing.Point(760, 102);
+            this.editOrganizationButton.Location = new System.Drawing.Point(101, 7);
             this.editOrganizationButton.Name = "editOrganizationButton";
             this.editOrganizationButton.Size = new System.Drawing.Size(88, 30);
             this.editOrganizationButton.TabIndex = 17;
@@ -372,24 +475,74 @@
             this.editOrganizationButton.UseVisualStyleBackColor = true;
             this.editOrganizationButton.Click += new System.EventHandler(this.editOrganizationButton_Click);
             // 
-            // groupBox2
+            // removeOrganizationButton
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.Honeydew;
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(8, 14);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(474, 118);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Фильтр";
+            this.removeOrganizationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.removeOrganizationButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.removeOrganizationButton.Location = new System.Drawing.Point(195, 7);
+            this.removeOrganizationButton.Name = "removeOrganizationButton";
+            this.removeOrganizationButton.Size = new System.Drawing.Size(88, 30);
+            this.removeOrganizationButton.TabIndex = 15;
+            this.removeOrganizationButton.Text = "Удалить";
+            this.removeOrganizationButton.UseVisualStyleBackColor = true;
+            this.removeOrganizationButton.Click += new System.EventHandler(this.removeOrganizationButton_Click);
+            // 
+            // addOrganizationButton
+            // 
+            this.addOrganizationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addOrganizationButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addOrganizationButton.Location = new System.Drawing.Point(7, 7);
+            this.addOrganizationButton.Name = "addOrganizationButton";
+            this.addOrganizationButton.Size = new System.Drawing.Size(88, 30);
+            this.addOrganizationButton.TabIndex = 14;
+            this.addOrganizationButton.Text = "Добавить";
+            this.addOrganizationButton.UseVisualStyleBackColor = true;
+            this.addOrganizationButton.Click += new System.EventHandler(this.addOrganizationButton_Click);
+            // 
+            // organizationFilter
+            // 
+            this.organizationFilter.BackColor = System.Drawing.Color.Honeydew;
+            this.organizationFilter.Controls.Add(this.organizationClearButton);
+            this.organizationFilter.Controls.Add(this.organizationSearchButton);
+            this.organizationFilter.Controls.Add(this.label6);
+            this.organizationFilter.Controls.Add(this.label5);
+            this.organizationFilter.Controls.Add(this.organizationInnTextBox);
+            this.organizationFilter.Controls.Add(this.organizationAccountTextBox);
+            this.organizationFilter.Controls.Add(this.label4);
+            this.organizationFilter.Controls.Add(this.organizationNameTextBox);
+            this.organizationFilter.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organizationFilter.Location = new System.Drawing.Point(8, 10);
+            this.organizationFilter.Name = "organizationFilter";
+            this.organizationFilter.Size = new System.Drawing.Size(481, 122);
+            this.organizationFilter.TabIndex = 3;
+            this.organizationFilter.TabStop = false;
+            this.organizationFilter.Text = "Фильтр";
+            // 
+            // organizationClearButton
+            // 
+            this.organizationClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.organizationClearButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organizationClearButton.Location = new System.Drawing.Point(387, 69);
+            this.organizationClearButton.Name = "organizationClearButton";
+            this.organizationClearButton.Size = new System.Drawing.Size(88, 38);
+            this.organizationClearButton.TabIndex = 15;
+            this.organizationClearButton.Text = "Сброс";
+            this.organizationClearButton.UseVisualStyleBackColor = true;
+            this.organizationClearButton.Click += new System.EventHandler(this.organizationClearButton_Click);
+            // 
+            // organizationSearchButton
+            // 
+            this.organizationSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.organizationSearchButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organizationSearchButton.Location = new System.Drawing.Point(387, 21);
+            this.organizationSearchButton.Name = "organizationSearchButton";
+            this.organizationSearchButton.Size = new System.Drawing.Size(88, 38);
+            this.organizationSearchButton.TabIndex = 14;
+            this.organizationSearchButton.Text = "Поиск";
+            this.organizationSearchButton.UseVisualStyleBackColor = true;
+            this.organizationSearchButton.Click += new System.EventHandler(this.organizationSearchButton_Click);
             // 
             // label6
             // 
@@ -411,21 +564,21 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "По номеру счёта";
             // 
-            // textBox4
+            // organizationInnTextBox
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4.Location = new System.Drawing.Point(175, 53);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(194, 26);
-            this.textBox4.TabIndex = 10;
+            this.organizationInnTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organizationInnTextBox.Location = new System.Drawing.Point(175, 53);
+            this.organizationInnTextBox.Name = "organizationInnTextBox";
+            this.organizationInnTextBox.Size = new System.Drawing.Size(194, 26);
+            this.organizationInnTextBox.TabIndex = 10;
             // 
-            // textBox5
+            // organizationAccountTextBox
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox5.Location = new System.Drawing.Point(175, 85);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(194, 26);
-            this.textBox5.TabIndex = 12;
+            this.organizationAccountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organizationAccountTextBox.Location = new System.Drawing.Point(175, 85);
+            this.organizationAccountTextBox.Name = "organizationAccountTextBox";
+            this.organizationAccountTextBox.Size = new System.Drawing.Size(194, 26);
+            this.organizationAccountTextBox.TabIndex = 12;
             // 
             // label4
             // 
@@ -437,13 +590,13 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "По наименованию";
             // 
-            // textBox2
+            // organizationNameTextBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(175, 21);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(194, 26);
-            this.textBox2.TabIndex = 8;
+            this.organizationNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organizationNameTextBox.Location = new System.Drawing.Point(175, 21);
+            this.organizationNameTextBox.Name = "organizationNameTextBox";
+            this.organizationNameTextBox.Size = new System.Drawing.Size(194, 26);
+            this.organizationNameTextBox.TabIndex = 8;
             // 
             // openOrganizationButton
             // 
@@ -456,30 +609,6 @@
             this.openOrganizationButton.Text = "Подробнее";
             this.openOrganizationButton.UseVisualStyleBackColor = true;
             this.openOrganizationButton.Click += new System.EventHandler(this.openOrganizationButton_Click);
-            // 
-            // removeOrganizationButton
-            // 
-            this.removeOrganizationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.removeOrganizationButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.removeOrganizationButton.Location = new System.Drawing.Point(854, 102);
-            this.removeOrganizationButton.Name = "removeOrganizationButton";
-            this.removeOrganizationButton.Size = new System.Drawing.Size(88, 30);
-            this.removeOrganizationButton.TabIndex = 15;
-            this.removeOrganizationButton.Text = "Удалить";
-            this.removeOrganizationButton.UseVisualStyleBackColor = true;
-            this.removeOrganizationButton.Click += new System.EventHandler(this.removeOrganizationButton_Click);
-            // 
-            // addOrganizationButton
-            // 
-            this.addOrganizationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addOrganizationButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addOrganizationButton.Location = new System.Drawing.Point(666, 102);
-            this.addOrganizationButton.Name = "addOrganizationButton";
-            this.addOrganizationButton.Size = new System.Drawing.Size(88, 30);
-            this.addOrganizationButton.TabIndex = 14;
-            this.addOrganizationButton.Text = "Добавить";
-            this.addOrganizationButton.UseVisualStyleBackColor = true;
-            this.addOrganizationButton.Click += new System.EventHandler(this.addOrganizationButton_Click);
             // 
             // organizationsTable
             // 
@@ -499,14 +628,14 @@
             this.Column8,
             this.Column14,
             this.Column11});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.organizationsTable.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.organizationsTable.DefaultCellStyle = dataGridViewCellStyle5;
             this.organizationsTable.Location = new System.Drawing.Point(8, 138);
             this.organizationsTable.MultiSelect = false;
             this.organizationsTable.Name = "organizationsTable";
@@ -515,50 +644,185 @@
             this.organizationsTable.Size = new System.Drawing.Size(934, 360);
             this.organizationsTable.TabIndex = 2;
             // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "Id";
+            this.Column13.HeaderText = "Id";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "Name";
+            this.Column9.HeaderText = "Наименование органзации";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "Address";
+            this.Column10.HeaderText = "Место нахождения";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "Inn";
+            this.Column8.HeaderText = "ИНН";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "SettlementAccount";
+            this.Column14.HeaderText = "Расчётный счёт";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "Email";
+            this.Column11.HeaderText = "Адрес электронной почты";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.MintCream;
-            this.tabPage3.Controls.Add(this.groupBox3);
-            this.tabPage3.Controls.Add(this.addProductButton);
-            this.tabPage3.Controls.Add(this.editProductButton);
-            this.tabPage3.Controls.Add(this.removeProductButton);
+            this.tabPage3.Controls.Add(this.productEditableButtonsPanel);
+            this.tabPage3.Controls.Add(this.productFilter);
             this.tabPage3.Controls.Add(this.openProductButton);
             this.tabPage3.Controls.Add(this.productTable);
             this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(950, 506);
+            this.tabPage3.Size = new System.Drawing.Size(950, 482);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Продукция";
             // 
-            // groupBox3
+            // productEditableButtonsPanel
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.Honeydew;
-            this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Controls.Add(this.button6);
-            this.groupBox3.Controls.Add(this.numericUpDown2);
-            this.groupBox3.Controls.Add(this.numericUpDown1);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.textBox8);
-            this.groupBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox3.Location = new System.Drawing.Point(8, 14);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(474, 118);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Фильтр";
+            this.productEditableButtonsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.productEditableButtonsPanel.Controls.Add(this.addProductButton);
+            this.productEditableButtonsPanel.Controls.Add(this.editProductButton);
+            this.productEditableButtonsPanel.Controls.Add(this.removeProductButton);
+            this.productEditableButtonsPanel.Location = new System.Drawing.Point(660, 94);
+            this.productEditableButtonsPanel.Name = "productEditableButtonsPanel";
+            this.productEditableButtonsPanel.Size = new System.Drawing.Size(289, 44);
+            this.productEditableButtonsPanel.TabIndex = 7;
             // 
-            // numericUpDown1
+            // addProductButton
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(151, 85);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(88, 27);
-            this.numericUpDown1.TabIndex = 18;
+            this.addProductButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addProductButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addProductButton.Location = new System.Drawing.Point(6, 8);
+            this.addProductButton.Name = "addProductButton";
+            this.addProductButton.Size = new System.Drawing.Size(88, 30);
+            this.addProductButton.TabIndex = 5;
+            this.addProductButton.Text = "Добавить";
+            this.addProductButton.UseVisualStyleBackColor = true;
+            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
+            // 
+            // editProductButton
+            // 
+            this.editProductButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.editProductButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editProductButton.Location = new System.Drawing.Point(100, 8);
+            this.editProductButton.Name = "editProductButton";
+            this.editProductButton.Size = new System.Drawing.Size(88, 30);
+            this.editProductButton.TabIndex = 4;
+            this.editProductButton.Text = "Изменить";
+            this.editProductButton.UseVisualStyleBackColor = true;
+            this.editProductButton.Click += new System.EventHandler(this.editProductButton_Click);
+            // 
+            // removeProductButton
+            // 
+            this.removeProductButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.removeProductButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.removeProductButton.Location = new System.Drawing.Point(194, 8);
+            this.removeProductButton.Name = "removeProductButton";
+            this.removeProductButton.Size = new System.Drawing.Size(88, 30);
+            this.removeProductButton.TabIndex = 3;
+            this.removeProductButton.Text = "Удалить";
+            this.removeProductButton.UseVisualStyleBackColor = true;
+            this.removeProductButton.Click += new System.EventHandler(this.removeProductButton_Click);
+            // 
+            // productFilter
+            // 
+            this.productFilter.BackColor = System.Drawing.Color.Honeydew;
+            this.productFilter.Controls.Add(this.productClearButton);
+            this.productFilter.Controls.Add(this.productSearchButton);
+            this.productFilter.Controls.Add(this.productAvailableTillNumeric);
+            this.productFilter.Controls.Add(this.productAvailableFromNumeric);
+            this.productFilter.Controls.Add(this.label12);
+            this.productFilter.Controls.Add(this.label11);
+            this.productFilter.Controls.Add(this.label8);
+            this.productFilter.Controls.Add(this.label9);
+            this.productFilter.Controls.Add(this.productTuTextBox);
+            this.productFilter.Controls.Add(this.label10);
+            this.productFilter.Controls.Add(this.productNameTextBox);
+            this.productFilter.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.productFilter.Location = new System.Drawing.Point(8, 10);
+            this.productFilter.Name = "productFilter";
+            this.productFilter.Size = new System.Drawing.Size(481, 122);
+            this.productFilter.TabIndex = 6;
+            this.productFilter.TabStop = false;
+            this.productFilter.Text = "Фильтр";
+            // 
+            // productClearButton
+            // 
+            this.productClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.productClearButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.productClearButton.Location = new System.Drawing.Point(387, 69);
+            this.productClearButton.Name = "productClearButton";
+            this.productClearButton.Size = new System.Drawing.Size(88, 38);
+            this.productClearButton.TabIndex = 21;
+            this.productClearButton.Text = "Сброс";
+            this.productClearButton.UseVisualStyleBackColor = true;
+            this.productClearButton.Click += new System.EventHandler(this.productClearButton_Click);
+            // 
+            // productSearchButton
+            // 
+            this.productSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.productSearchButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.productSearchButton.Location = new System.Drawing.Point(387, 21);
+            this.productSearchButton.Name = "productSearchButton";
+            this.productSearchButton.Size = new System.Drawing.Size(88, 38);
+            this.productSearchButton.TabIndex = 20;
+            this.productSearchButton.Text = "Поиск";
+            this.productSearchButton.UseVisualStyleBackColor = true;
+            this.productSearchButton.Click += new System.EventHandler(this.productSearchButton_Click);
+            // 
+            // productAvailableTillNumeric
+            // 
+            this.productAvailableTillNumeric.Location = new System.Drawing.Point(277, 85);
+            this.productAvailableTillNumeric.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.productAvailableTillNumeric.Name = "productAvailableTillNumeric";
+            this.productAvailableTillNumeric.Size = new System.Drawing.Size(88, 27);
+            this.productAvailableTillNumeric.TabIndex = 19;
+            this.productAvailableTillNumeric.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // productAvailableFromNumeric
+            // 
+            this.productAvailableFromNumeric.Location = new System.Drawing.Point(151, 85);
+            this.productAvailableFromNumeric.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.productAvailableFromNumeric.Name = "productAvailableFromNumeric";
+            this.productAvailableFromNumeric.Size = new System.Drawing.Size(88, 27);
+            this.productAvailableFromNumeric.TabIndex = 18;
             // 
             // label12
             // 
@@ -569,7 +833,6 @@
             this.label12.Size = new System.Drawing.Size(26, 19);
             this.label12.TabIndex = 17;
             this.label12.Text = "до";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label11
             // 
@@ -601,13 +864,13 @@
             this.label9.TabIndex = 11;
             this.label9.Text = "В наличии";
             // 
-            // textBox6
+            // productTuTextBox
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox6.Location = new System.Drawing.Point(175, 53);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(194, 26);
-            this.textBox6.TabIndex = 10;
+            this.productTuTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.productTuTextBox.Location = new System.Drawing.Point(175, 53);
+            this.productTuTextBox.Name = "productTuTextBox";
+            this.productTuTextBox.Size = new System.Drawing.Size(194, 26);
+            this.productTuTextBox.TabIndex = 10;
             // 
             // label10
             // 
@@ -619,49 +882,13 @@
             this.label10.TabIndex = 9;
             this.label10.Text = "По наименованию";
             // 
-            // textBox8
+            // productNameTextBox
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox8.Location = new System.Drawing.Point(175, 21);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(194, 26);
-            this.textBox8.TabIndex = 8;
-            // 
-            // addProductButton
-            // 
-            this.addProductButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addProductButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addProductButton.Location = new System.Drawing.Point(666, 102);
-            this.addProductButton.Name = "addProductButton";
-            this.addProductButton.Size = new System.Drawing.Size(88, 30);
-            this.addProductButton.TabIndex = 5;
-            this.addProductButton.Text = "Добавить";
-            this.addProductButton.UseVisualStyleBackColor = true;
-            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
-            // 
-            // editProductButton
-            // 
-            this.editProductButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editProductButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editProductButton.Location = new System.Drawing.Point(760, 102);
-            this.editProductButton.Name = "editProductButton";
-            this.editProductButton.Size = new System.Drawing.Size(88, 30);
-            this.editProductButton.TabIndex = 4;
-            this.editProductButton.Text = "Изменить";
-            this.editProductButton.UseVisualStyleBackColor = true;
-            this.editProductButton.Click += new System.EventHandler(this.editProductButton_Click);
-            // 
-            // removeProductButton
-            // 
-            this.removeProductButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.removeProductButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.removeProductButton.Location = new System.Drawing.Point(854, 102);
-            this.removeProductButton.Name = "removeProductButton";
-            this.removeProductButton.Size = new System.Drawing.Size(88, 30);
-            this.removeProductButton.TabIndex = 3;
-            this.removeProductButton.Text = "Удалить";
-            this.removeProductButton.UseVisualStyleBackColor = true;
-            this.removeProductButton.Click += new System.EventHandler(this.removeProductButton_Click);
+            this.productNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.productNameTextBox.Location = new System.Drawing.Point(175, 21);
+            this.productNameTextBox.Name = "productNameTextBox";
+            this.productNameTextBox.Size = new System.Drawing.Size(194, 26);
+            this.productNameTextBox.TabIndex = 8;
             // 
             // openProductButton
             // 
@@ -693,14 +920,14 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.Column7});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productTable.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productTable.DefaultCellStyle = dataGridViewCellStyle6;
             this.productTable.Location = new System.Drawing.Point(8, 138);
             this.productTable.Name = "productTable";
             this.productTable.ReadOnly = true;
@@ -750,141 +977,70 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
-            // numericUpDown2
+            // menuStrip1
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(277, 85);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(88, 27);
-            this.numericUpDown2.TabIndex = 19;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usersToolStripMenuItem,
+            this.aboutToolStripMenuItem,
+            this.helpToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(958, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // button3
+            // usersToolStripMenuItem
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(380, 69);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(88, 34);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Сброс";
-            this.button3.UseVisualStyleBackColor = true;
+            this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageUsersToolStripMenuItem,
+            this.changePasswordToolStripMenuItem,
+            this.changeUserToolStripMenuItem});
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            this.usersToolStripMenuItem.Text = "Пользователи";
             // 
-            // button4
+            // manageUsersToolStripMenuItem
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(380, 21);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(88, 34);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Поиск";
-            this.button4.UseVisualStyleBackColor = true;
+            this.manageUsersToolStripMenuItem.Name = "manageUsersToolStripMenuItem";
+            this.manageUsersToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.manageUsersToolStripMenuItem.Text = "Управление";
+            this.manageUsersToolStripMenuItem.Click += new System.EventHandler(this.addUserToolStripMenuItem_Click);
             // 
-            // button5
+            // changePasswordToolStripMenuItem
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(380, 65);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(88, 34);
-            this.button5.TabIndex = 21;
-            this.button5.Text = "Сброс";
-            this.button5.UseVisualStyleBackColor = true;
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.changePasswordToolStripMenuItem.Text = "Изменить пароль";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
-            // button6
+            // changeUserToolStripMenuItem
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(380, 17);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(88, 34);
-            this.button6.TabIndex = 20;
-            this.button6.Text = "Поиск";
-            this.button6.UseVisualStyleBackColor = true;
+            this.changeUserToolStripMenuItem.Name = "changeUserToolStripMenuItem";
+            this.changeUserToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.changeUserToolStripMenuItem.Text = "Сменить пользователя";
+            this.changeUserToolStripMenuItem.Click += new System.EventHandler(this.changeUserToolStripMenuItem_Click);
             // 
-            // Column1
+            // aboutToolStripMenuItem
             // 
-            this.Column1.DataPropertyName = "Supply_ID";
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.aboutToolStripMenuItem.Text = "О программе";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // Column2
+            // exitToolStripMenuItem
             // 
-            this.Column2.DataPropertyName = "PreparationDate";
-            this.Column2.HeaderText = "Дата составления";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.exitToolStripMenuItem.Text = "Выход";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // Column4
+            // helpToolStripMenuItem
             // 
-            this.Column4.DataPropertyName = "Bill";
-            this.Column4.HeaderText = "Счёт";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.TrackVisitedState = false;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "OrganizationName";
-            this.Column5.HeaderText = "Организация";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.TrackVisitedState = false;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "Status";
-            this.Column6.HeaderText = "Статус";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column13
-            // 
-            this.Column13.DataPropertyName = "Id";
-            this.Column13.HeaderText = "Id";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "Name";
-            this.Column9.HeaderText = "Наименование органзации";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "Address";
-            this.Column10.HeaderText = "Место нахождения";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "Inn";
-            this.Column8.HeaderText = "ИНН";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "SettlementAccount";
-            this.Column14.HeaderText = "Расчётный счёт";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "Email";
-            this.Column11.HeaderText = "Адрес электронной почты";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.helpToolStripMenuItem.Text = "Помощь";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -893,6 +1049,7 @@
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(958, 537);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Form1";
@@ -901,20 +1058,28 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.supplyEditableButtonsPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.supplyFilter.ResumeLayout(false);
+            this.supplyFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplyTable)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.organizationEditableButtonsPanel.ResumeLayout(false);
+            this.organizationFilter.ResumeLayout(false);
+            this.organizationFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.organizationsTable)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.productEditableButtonsPanel.ResumeLayout(false);
+            this.productFilter.ResumeLayout(false);
+            this.productFilter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productAvailableTillNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productAvailableFromNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -922,30 +1087,30 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox supplyFilter;
+        private System.Windows.Forms.Button supplyClearButton;
+        private System.Windows.Forms.Button supplySearchButton;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker supplyTillSearchDateTime;
+        private System.Windows.Forms.DateTimePicker supplyFromSearchDateTime;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox supplyProductionNameTextBox;
+        private System.Windows.Forms.GroupBox organizationFilter;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox organizationNameTextBox;
         private System.Windows.Forms.DataGridView organizationsTable;
         private System.Windows.Forms.Button editSupplyButton;
         private System.Windows.Forms.Button removeSupplyButton;
         private System.Windows.Forms.Button addSupplyButton;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox supplyOrganizationNameTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox organizationInnTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox organizationAccountTextBox;
         public System.Windows.Forms.DataGridView supplyTable;
         private System.Windows.Forms.Button addProductButton;
         private System.Windows.Forms.Button editProductButton;
@@ -963,20 +1128,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.GroupBox productFilter;
+        private System.Windows.Forms.NumericUpDown productAvailableFromNumeric;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox productTuTextBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.TextBox productNameTextBox;
+        private System.Windows.Forms.Button organizationClearButton;
+        private System.Windows.Forms.Button organizationSearchButton;
+        private System.Windows.Forms.Button productClearButton;
+        private System.Windows.Forms.Button productSearchButton;
+        private System.Windows.Forms.NumericUpDown productAvailableTillNumeric;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewLinkColumn Column4;
@@ -988,6 +1153,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageUsersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeUserToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label userNameLabel;
+        private System.Windows.Forms.Panel supplyEditableButtonsPanel;
+        private System.Windows.Forms.Panel organizationEditableButtonsPanel;
+        private System.Windows.Forms.Panel productEditableButtonsPanel;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }
 

@@ -93,7 +93,7 @@
             // 
             this.postTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.postTextBox.Location = new System.Drawing.Point(190, 181);
-            this.postTextBox.MaxLength = 6;
+            this.postTextBox.MaxLength = 32000;
             this.postTextBox.Name = "postTextBox";
             this.postTextBox.Size = new System.Drawing.Size(281, 27);
             this.postTextBox.TabIndex = 37;
@@ -205,7 +205,7 @@
             this.proxyReceivedDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.proxyReceivedDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.proxyReceivedDatePicker.Location = new System.Drawing.Point(190, 217);
-            this.proxyReceivedDatePicker.MaxDate = new System.DateTime(2018, 5, 10, 0, 0, 0, 0);
+            this.proxyReceivedDatePicker.MaxDate = new System.DateTime(2030, 12, 29, 0, 0, 0, 0);
             this.proxyReceivedDatePicker.Name = "proxyReceivedDatePicker";
             this.proxyReceivedDatePicker.Size = new System.Drawing.Size(200, 22);
             this.proxyReceivedDatePicker.TabIndex = 53;
@@ -217,11 +217,11 @@
             this.proxyExpiredDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.proxyExpiredDatePicker.Location = new System.Drawing.Point(190, 245);
             this.proxyExpiredDatePicker.MaxDate = new System.DateTime(2030, 5, 10, 0, 0, 0, 0);
-            this.proxyExpiredDatePicker.MinDate = new System.DateTime(2018, 5, 10, 0, 0, 0, 0);
+            this.proxyExpiredDatePicker.MinDate = new System.DateTime(2015, 1, 17, 0, 0, 0, 0);
             this.proxyExpiredDatePicker.Name = "proxyExpiredDatePicker";
             this.proxyExpiredDatePicker.Size = new System.Drawing.Size(200, 22);
             this.proxyExpiredDatePicker.TabIndex = 54;
-            this.proxyExpiredDatePicker.Value = new System.DateTime(2018, 5, 10, 0, 0, 0, 0);
+            this.proxyExpiredDatePicker.Value = new System.DateTime(2019, 12, 25, 23, 59, 59, 0);
             // 
             // ResponsiblePersonDialog
             // 

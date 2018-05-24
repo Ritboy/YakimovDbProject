@@ -17,11 +17,21 @@ namespace DB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Login();
+        }
+
+        public static void Login()
+        {
             var auth = new Auth();
             Application.Run(auth);
             if (auth.Passed)
             {
-                Application.Run(new Form1());
+                var form = new Form1(auth.Login);
+                Application.Run(form);
+                if (form.DoRelogin)
+                {
+                    Login();
+                }
             }
         }
     }

@@ -31,7 +31,7 @@ namespace DB.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.organizationLinkLabel = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.preparationDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -60,13 +60,13 @@ namespace DB.Dialogs
             this.removeProductButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.discountNumeric = new System.Windows.Forms.NumericUpDown();
-            this.discountCheckBox = new System.Windows.Forms.CheckBox();
             this.amountLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.discountLabel = new System.Windows.Forms.Label();
+            this.discountNumeric = new System.Windows.Forms.NumericUpDown();
+            this.discountCheckBox = new System.Windows.Forms.CheckBox();
             this.changeOrganizationButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
@@ -243,14 +243,14 @@ namespace DB.Dialogs
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productsTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productsTable.DefaultCellStyle = dataGridViewCellStyle3;
             this.productsTable.Location = new System.Drawing.Point(6, 51);
             this.productsTable.Name = "productsTable";
             this.productsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -333,8 +333,6 @@ namespace DB.Dialogs
             // 
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.productsTable);
-            this.groupBox1.Controls.Add(this.discountNumeric);
-            this.groupBox1.Controls.Add(this.discountCheckBox);
             this.groupBox1.Controls.Add(this.amountLabel);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label7);
@@ -342,6 +340,8 @@ namespace DB.Dialogs
             this.groupBox1.Controls.Add(this.removeProductButton);
             this.groupBox1.Controls.Add(this.addProductButton);
             this.groupBox1.Controls.Add(this.discountLabel);
+            this.groupBox1.Controls.Add(this.discountNumeric);
+            this.groupBox1.Controls.Add(this.discountCheckBox);
             this.groupBox1.Location = new System.Drawing.Point(6, 251);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(632, 285);
@@ -358,26 +358,6 @@ namespace DB.Dialogs
             this.label10.Size = new System.Drawing.Size(15, 13);
             this.label10.TabIndex = 28;
             this.label10.Text = "%";
-            // 
-            // discountNumeric
-            // 
-            this.discountNumeric.Enabled = false;
-            this.discountNumeric.Location = new System.Drawing.Point(262, 246);
-            this.discountNumeric.Name = "discountNumeric";
-            this.discountNumeric.Size = new System.Drawing.Size(42, 20);
-            this.discountNumeric.TabIndex = 29;
-            this.discountNumeric.ValueChanged += new System.EventHandler(this.discountNumeric_ValueChanged);
-            // 
-            // discountCheckBox
-            // 
-            this.discountCheckBox.AutoSize = true;
-            this.discountCheckBox.Location = new System.Drawing.Point(135, 246);
-            this.discountCheckBox.Name = "discountCheckBox";
-            this.discountCheckBox.Size = new System.Drawing.Size(121, 17);
-            this.discountCheckBox.TabIndex = 28;
-            this.discountCheckBox.Text = "Применить скидку";
-            this.discountCheckBox.UseVisualStyleBackColor = true;
-            this.discountCheckBox.CheckedChanged += new System.EventHandler(this.discountCheckBox_CheckedChanged);
             // 
             // amountLabel
             // 
@@ -418,11 +398,32 @@ namespace DB.Dialogs
             // discountLabel
             // 
             this.discountLabel.AutoSize = true;
-            this.discountLabel.Location = new System.Drawing.Point(229, 250);
+            this.discountLabel.Location = new System.Drawing.Point(291, 247);
             this.discountLabel.Name = "discountLabel";
             this.discountLabel.Size = new System.Drawing.Size(13, 13);
             this.discountLabel.TabIndex = 33;
             this.discountLabel.Text = "0";
+            this.discountLabel.Visible = false;
+            // 
+            // discountNumeric
+            // 
+            this.discountNumeric.Enabled = false;
+            this.discountNumeric.Location = new System.Drawing.Point(262, 246);
+            this.discountNumeric.Name = "discountNumeric";
+            this.discountNumeric.Size = new System.Drawing.Size(42, 20);
+            this.discountNumeric.TabIndex = 29;
+            this.discountNumeric.ValueChanged += new System.EventHandler(this.discountNumeric_ValueChanged);
+            // 
+            // discountCheckBox
+            // 
+            this.discountCheckBox.AutoSize = true;
+            this.discountCheckBox.Location = new System.Drawing.Point(135, 246);
+            this.discountCheckBox.Name = "discountCheckBox";
+            this.discountCheckBox.Size = new System.Drawing.Size(121, 17);
+            this.discountCheckBox.TabIndex = 28;
+            this.discountCheckBox.Text = "Применить скидку";
+            this.discountCheckBox.UseVisualStyleBackColor = true;
+            this.discountCheckBox.CheckedChanged += new System.EventHandler(this.discountCheckBox_CheckedChanged);
             // 
             // changeOrganizationButton
             // 
@@ -535,6 +536,7 @@ namespace DB.Dialogs
             this.MinimizeBox = false;
             this.Name = "SupplyDialog";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Поставка";
             this.Load += new System.EventHandler(this.SupplyDialog_Load);
             this.supplyResolvedPanel.ResumeLayout(false);
