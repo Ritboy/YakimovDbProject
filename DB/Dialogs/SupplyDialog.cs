@@ -18,7 +18,6 @@ namespace DB.Dialogs
         public Organization Organization { get; set; }
         public ResponsiblePerson ResponsiblePerson { get; set; }
         public Bill Bill { get; set; }
-        //public List<BillProduct> BillProduct { get; set; } = new List<BillProduct>();
 
         public SupplyDialog(DialogState dialogState, long? id = null) : base(dialogState, id)
         {
@@ -77,42 +76,39 @@ namespace DB.Dialogs
             if (Organization == null)
             {
                 MessageBox.Show("Выберите организацию получателя", "Организация не выбрана", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
             }
 
             else if (statusComboBox.SelectedIndex == 3 && ResponsiblePerson == null)
             {
                 MessageBox.Show(this, "Если поставка завершена, необходимо указать, ответсвенное лицо, которое приняло поставку. Укажите ответсвенное лицо или измените статус поставки", "Ответсвенное лицо не указано", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
             }
-            else
+
+            Bill.Amount = double.Parse(amountLabel.Text);
+            Bill.Discount = discountCheckBox.Checked ? (int)discountNumeric.Value : 0;
+
+            _supply.OrganizationId = Organization.OrganizationId;
+            _supply.ResponsiblePersonId = ResponsiblePerson?.ResponsiblePersonId;
+            _supply.BillId = Bill.BillId;
+            _supply.Preparation_date = preparationDatePicker.Value;
+            _supply.Expiration_date = expirationDatePicker.Value;
+            _supply.Execution_date = executionDatePicker.Value;
+            _supply.Status = (SupplyStatus)statusComboBox.SelectedIndex;
+
+            if (DialogState == DialogState.Add)
             {
-                _supply = new Supply()
-                {
-                    OrganizationId = Organization.OrganizationId,
-                    ResponsiblePersonId = ResponsiblePerson?.ResponsiblePersonId,
-                    BillId = Bill.BillId,
-                    Preparation_date = preparationDatePicker.Value,
-                    Expiration_date = expirationDatePicker.Value,
-                    Execution_date = executionDatePicker.Value,
-                    Status = (SupplyStatus)statusComboBox.SelectedIndex
-                };
-
-                Bill.Amount = double.Parse(amountLabel.Text);
-                Bill.Discount = discountCheckBox.Checked ? (int)discountNumeric.Value : 0;
-
-                if (DialogState == DialogState.Add)
-                {
-                    EntityManager.InsertSupply(_supply);
-                    EntityManager.InsertBill(Bill);
-                    Bill.Products.ForEach(billProduct => EntityManager.InsertBillProduct(billProduct));
-                }
-                else if (DialogState == DialogState.Edit)
-                {
-                    EntityManager.UpdateSupply(_supply.SupplyId, _supply);
-                    EntityManager.UpdateBill(Bill.BillId, Bill);
-                    Bill.Products.ForEach(billProduct => EntityManager.UpdateBillProduct(billProduct.BillId, billProduct.ProductId, billProduct));
-                }
-                this.Close();
+                EntityManager.InsertSupply(_supply);
+                EntityManager.InsertBill(Bill);
+                Bill.Products.ForEach(billProduct => EntityManager.InsertBillProduct(billProduct));
             }
+            else if (DialogState == DialogState.Edit)
+            {
+                EntityManager.UpdateSupply(_supply.SupplyId, _supply);
+                EntityManager.UpdateBill(Bill.BillId, Bill);
+                Bill.Products.ForEach(billProduct => EntityManager.UpdateBillProduct(billProduct.BillId, billProduct.ProductId, billProduct));
+            }
+            this.Close();
         }
 
         private void applyDiscount()
@@ -220,6 +216,8 @@ namespace DB.Dialogs
                 discountNumeric.Visible = false;
                 discountLabel.Text = Bill.Discount.ToString();
             }
+
+            updateTable();
         }
 
         private void changeResponsiblePersonButton_Click(object sender, EventArgs e)
@@ -266,6 +264,11 @@ namespace DB.Dialogs
                 new ResponsiblePersonDialog(DialogState.Open, Organization, ResponsiblePerson.ResponsiblePersonId)
                     .ShowDialog();
             }
+        }
+
+        private void updateTable()
+        {
+            productsTable.DataSource = Bill.Products;
         }
     }
 }

@@ -237,7 +237,7 @@ between date(@dateFrom) and date(@dateTill);";
                         WHERE Supply_ID = @id;";
             var command = new SQLiteCommand(query, _connection);
             command.Parameters.AddWithValue("@id", id);
-            command.Parameters.AddWithValue("@organizationId", supply.Organization);
+            command.Parameters.AddWithValue("@organizationId", supply.OrganizationId);
             command.Parameters.AddWithValue("@billId", supply.BillId);
             command.Parameters.AddWithValue("@responsiblePersonId", supply.ResponsiblePersonId);
             command.Parameters.AddWithValue("@preparationDate", supply.Preparation_date.ToString("yyyy-MM-dd"));
